@@ -1,0 +1,247 @@
+%------------------------------------------------
+%------------------------------------------------
+%PLANO TCC 2016/1 change by tiago heinrich
+%PLANO TCC 2018/1 changed by lucas gutierrez
+%PLANO TCC 2018/2 changed by Christopher Renkavieski
+%PLANO TCC 2019/1 changed by Luiza Engler Stadelhofer
+\documentclass[11pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%5\usepackage[latin1]{inputenc}
+%\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage[pdftex]{hyperref}
+\usepackage{multirow,multicol}
+\usepackage{fancyhdr,url} 
+\usepackage{verbatim}
+\usepackage[table]{xcolor}
+\usepackage{ragged2e}
+
+\usepackage{authblk}%affil , para colocar a universidade
+
+%%%%%%%%%%%%%%count enumarete start in zero
+\usepackage{enumitem}
+\setlist[enumerate,1]{start=1} % only outer nesting level
+
+%%apalike reference
+%\usepackage{natbib}
+\usepackage{apalike}
+
+
+%\oddsidemargin -0.7cm 
+%\evensidemargin -0.7cm
+\topmargin -2.0cm 
+%\headheight 0  cm 
+\headsep 1.5cm   
+%\hoffset -1.0cm
+%\footskip 40pt
+%\textheight = 235mm \textwidth 185mm
+\oddsidemargin 0.4cm 
+\evensidemargin 0.4cm
+\textheight = 235mm \textwidth 165mm
+
+
+\pagestyle{plain}
+\usepackage{multicol}
+\addtolength\columnsep{2pt}
+
+
+\begin{document}
+\pagestyle{fancy}
+%\lhead{\includegraphics[width=0.3\columnwidth]{figuras/logo_dcc.png}}
+\lhead{
+  \includegraphics[scale=0.75]{figuras/logo_dcc.pdf}
+}
+\chead{
+  \scriptsize{
+    UNIVERSIDADE DO ESTADO DE SANTA CATARINA -- UDESC\\
+    CENTRO DE CIÊNCIAS TECNOLÓGICAS -- CCT\\
+    DEPARTAMENTO DE CIÊNCIA DA COMPUTAÇÃO -- DCC
+  }
+}
+%\rhead{\includegraphics[width=0.3\columnwidth]{figuras/logo_udescjlle.png}}
+\rhead{
+  \includegraphics[scale=0.75]{figuras/logo_udescjlle.pdf}
+}
+
+\title{
+Plano de Trabalho de Conclusão de Curso\\
+Aplicação de Diferentes Métodos de Randomização em Meta-heurísticas
+}
+
+\onehalfspacing %espaçamento de 1,5
+
+\author{UDESC -- Centro de Ciências Tecnológicas\\
+Departamento de Ciência da Computação\\
+Bacharelado em Ciência da Computação -- Integral\\
+Turma 2016/1 -- Joinville/SC
+}
+
+\affil{
+\textbf{Luiza Engler Stadelhofer} -- \texttt{luiza.engler@gmail.com}\\
+\textbf{Rafael Stubs Parpinelli} -- \texttt{rafael.parpinelli@udesc.br} {\it (orientador)}%\\
+%$<$Nome do Coorientador -- \texttt{email@coorientador} {\it (coorientador)}$>$ (se for o caso)
+}
+
+\date{20 de Março de 2019}
+
+\maketitle
+
+
+%\singlespacing  %espaçamento simples
+\onehalfspacing  %espaçamento de 1,5
+%\doublespacing  %espaçamento duplo
+
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+%------------------------------------------------
+\begin{abstract}
+
+Meta-heurísticas são algoritmos estocásticos, portanto, a randomização é um dos seus princípios fundamentais. A randomização permite que o algoritmo não só seja capaz de escapar de mínimos ou máximos locais, fazendo uma busca global, como também ajuda em buscas locais na vizinhança da atual melhor solução. Levando isso em consideração, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos, como a distribuição Uniforme, Gaussiana, e de Cauchy, assim também como os mapas caóticos, como o Logístico e de Kent. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar. Por isso, este trabalho foca na análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas.
+
+%------------------------------------------------
+\textbf{Palavras-chave:} \textit{Métodos de Randomização. Meta-heurísticas.}
+\end{abstract}
+
+%------------------------------------------------
+\section{Introdução e Justificativa}
+\label{sec:int}
+
+%Um método de randomização, ou distribuição probabilística, é uma descrição das probabilidades associadas aos possíveis valores de uma variável aleatória $X$ \cite{montgomery}. 
+
+Na área de otimização, a classificação dos algoritmos pode ser dada através da sua natureza, dividindo os mesmos em duas categorias: algoritmos determinísticos e algoritmos estocásticos \cite{yang}. Algoritmos determinísticos seguem um procedimento rigoroso, e o caminho e valores de suas variáveis e função são repetíveis; por exemplo, o algoritmo subida de encosta é determinístico, pois a partir de um mesmo ponto de partida ele seguirá o mesmo caminho sempre \cite{yang}. Por outro lado, algoritmos estocásticos sempre terão algum tipo de aleatoriedade; algoritmos genéticos são um bom exemplo, onde o vetor de soluções será diferente a cada rodada, visto que o algoritmo utiliza um gerador de números pseudo-aleatórios \cite{yang}.
+
+Algoritmos estocásticos possuem dois tipos: heurísticas e meta-heurísticas \cite{yang}. Explicando de forma vaga, heurística significa "descobrir através de tentativa e erro" - soluções boas para um problema complexo podem ser encontradas em um tempo razoável, mas não existe garantia que a solução ótima será encontrada \cite{yang}. Mais adiante, foram desenvolvidas as meta-heurísticas, que significam "além" ou "alto-nível" e elas geralmente possuem um desempenho melhor do que as heurísticas \cite{yang}.
+
+Devido ao fato que meta-heurísticas são algoritmos estocásticos, podemos afirmar que a randomização é um dos princípios fundamentais para seus processos \cite{yang2}. A randomização permite que o algoritmo não só seja capaz de escapar de mínimos ou máximos locais, fazendo uma busca global, como também ajuda em buscas locais na vizinhança da atual melhor solução \cite{yang2} e ainda está fortemente ligada às propriedades de convergência do algoritmo \cite{caponetto}. Levando isso em consideração, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos, como a distribuição Uniforme, Gaussiana, e de Cauchy, assim também como os mapas caóticos, como o Logístico e de Kent \cite{fister}. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar - acabam utilizando a distribuição uniforme, por ser o gerador aleatório padrão de muitas linguagens.
+
+Com essa motivação, a contribuição deste trabalho se encontra na análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas, como o Sine Cosine Algorithm (SCA) \cite{mirjalili} e a Evolução Diferencial Auto-adaptativa (jDE) \cite{brest}. Alguns outros trabalhos também abordam objetivos semelhantes, como o trabalho de \cite{saxena} que apresenta uma versão do \textit{Grey Wolf Optimizer} (GWO) utilizando um mapa caótico; e o trabalho de \cite{jana}, que apresenta várias versões de um algoritmo simples, o Passeio Aleatório (\textit{Random Walk}), adaptadas com diferentes mapas caóticos. Ambos os trabalhos apresentaram resultados promissores, mostrando que a utilização de mapas caóticos sobre as outras distribuições antes usadas resulta em uma melhora na capacidade de intensificação e diversificação dos agentes de busca \cite{saxena} e em uma melhor cobertura do espaço de busca \cite{jana}. 
+
+%------------------------------------------------
+\section{Objetivos}
+\label{obj}
+
+\subsection{Objetivo geral}
+\label{objgeral}
+
+Este trabalho tem como objetivo geral a aplicação de diferentes métodos de randomização em algumas meta-heurísticas divergentes.
+
+\subsection{Objetivos específicos}
+\label{objesp}
+
+\begin{itemize}
+    \item Realizar um levantamento de diferentes meta-heurísticas;
+    \item Realizar um estudo sobre as meta-heurísticas selecionadas para o trabalho;
+    \item Levantar diferentes métodos de randomização que podem ser utilizados;
+    \item Estudar os métodos de randomização escolhidos;
+    \item Implementar as meta-heurísticas selecionadas;
+    \item Adaptar os algoritmos implementados para utilizarem os diferentes métodos de randomização escolhidos;
+    \item Realizar testes aplicando os algoritmos em funções \textit{benchmark};
+    \item Analisar o impacto dos diferentes métodos de randomização nos resultados apresentados;
+    \item Estudar possíveis problemas do mundo real nos quais os algoritmos em questão podem ser aplicados.
+\end{itemize}
+
+
+%------------------------------------------------
+\section{Metodologia}
+\label{met}
+
+Inicialmente, será realizada um levantamento de diferentes meta-heurísticas e métodos de randomização que serão aplicados no trabalho em questão. Em seguida, será feita uma revisão da literatura sobre os mesmos, buscando uma melhor compreensão dos tópicos. Além disso, será feito um estudo sobre funções \textit{benchmark}, destacando algumas dessas funções que serão utilizadas para a implementação. Em sequência, os algoritmos serão implementados utilizando a linguagem C++, e então serão aplicados às funções \textit{benchmark} estudadas para obtenção dos resultados. Depois, os resultados serão analisados e comparados a partir da geração de gráficos e medidas como médias e desvio-padrão. E por fim, serão estudados os problemas do mundo real selecionados para aplicação dos algoritmos.
+
+%------------------------------------------------
+\section{Cronograma proposto}
+\label{cro}
+
+Etapas:
+
+\begin{enumerate}
+    \item Revisão bibliográfica sobre as meta-heurísticas selecionadas;
+    \item Revisão bibliográfica sobre as distribuições probabilísticas escolhidas;
+    \item Implementação dos algoritmos;
+    \item Adaptação dos algoritmos para possuírem diferentes distribuições probabilísticas;
+    \item Aplicação dos algoritmos em funções \textit{benchmark};
+    \item Análise e comparação dos resultados;
+    \item Estudo dos problemas do mundo real;
+    \item Redação da monografia.
+\end{enumerate}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  \multirow{2}{*}{\textbf{\small{Etapas}}} &
+  \multicolumn{12}{|c||}{\textbf{\small{2019}}} &
+  \multicolumn{12}{|c|}{\textbf{\small{2019}}} \\
+  \cline{2-25}
+   & \multicolumn{2}{|c|}{\textbf{J}} & \multicolumn{2}{|c|}{\textbf{F}} & \multicolumn{2}{|c|}{\textbf{M}} & \multicolumn{2}{|c|}{\textbf{A}} & \multicolumn{2}{|c|}{\textbf{M}} & \multicolumn{2}{|c||}{\textbf{J}} & \multicolumn{2}{|c|}{\textbf{J}} & \multicolumn{2}{|c|}{\textbf{A}} & \multicolumn{2}{|c|}{\textbf{S}} & \multicolumn{2}{|c|}{\textbf{O}} & \multicolumn{2}{|c|}{\textbf{N}} & \multicolumn{2}{|c|}{\textbf{D}}  \\
+  \hline \hline
+  \textbf{\small{1}} & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & & \\
+  \hline
+  \textbf{\small{2}} & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & & & & \\
+  \hline
+  \textbf{\small{3}} & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & & & & & & & \\
+  \hline
+  \textbf{\small{4}} & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & & & & \\
+  \hline
+  \textbf{\small{5}} & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & & & \\
+  \hline
+  \textbf{\small{6}} & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & & \\
+  \hline
+  \textbf{\small{7}} & & & & & & & & & & & & & & & & & & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & & & \\
+  \hline
+  \textbf{\small{8}} & & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \cellcolor{black} & \\
+  \hline
+\end{tabular}
+\end{table}
+
+
+%------------------------------------------------
+\section{Linha e Grupo de Pesquisa}
+
+O trabalho presente se enquadra no escopo do grupo de pesquisa COCA (Grupo de Computação Cognitiva Aplicada), dentro da linha de pesquisa de otimização com Computação Natural e Inteligência Computacional.
+
+%------------------------------------------------
+\section{Forma de Acompanhamento/Orientação}
+
+O acompanhamento será realizado por meio de reuniões semanais entre acadêmico e professor orientador, com objetivo principal de acompanhar as atividades sendo realizadas e sanar quaisquer possíveis dúvidas. Poderão também ser realizadas reuniões extras conforme necessidade e disponibilidade, além de outros meios de comunicação, como e-mail.
+
+
+%------------------------------------------------
+%cite on file name apa.bib
+\bibliographystyle{apalike}
+\bibliography{apa}
+%\nocite{*}
+
+
+
+\vskip 2.5cm
+
+\begin{minipage} {0.49\linewidth}
+  \centering
+  \rule{7.2cm}{0.1mm}
+
+  \textbf{\textit{Rafael Stubs Parpinelli}}
+\end{minipage}
+\begin{minipage} {0.49\linewidth}
+  \centering
+  \rule{7.2cm}{0.1mm}
+
+  \textbf{\textit{Luiza Engler Stadelhofer}}
+\end{minipage}
+
+%\vskip 1.0cm
+
+%\begin{center}
+%  \rule{7.2cm}{0.1mm}
+%
+%  \textbf{\textit{$<$Nome do Líder do Grupo$>$}}\\
+%  \textit{(se o TCC fizer parte de um grupo do DCC)}
+%\end{center}
+
+
+%------------------------------------------------
+
+\end{document}
