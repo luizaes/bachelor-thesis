@@ -1,0 +1,104 @@
+
+\NeedsTeXFormat{LaTeX2e}
+
+\documentclass[a4paper,12pt]{monografia}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage[english, portuguese]{babel}
+\usepackage[titletoc]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage[mathcal]{eucal}
+\usepackage[alf]{abntcite}
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+\usepackage{subfigure}
+\usepackage{textcase}
+\usepackage{multirow}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{acronym}
+\usepackage{csquotes}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{url}
+
+\usepackage{bm}
+
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+
+\lstset{basicstyle=\tiny, language=C++}
+
+\makeindex
+
+\setcounter{secnumdepth}{5}
+
+
+\begin{document}
+
+\titulo{Aplicação de Diferentes Métodos de Randomização em Meta-heurísticas}
+\autor{Luiza Engler Stadelhofer}
+\nome{Luiza}
+\ultimonome{Stadelhofer}
+
+\bacharelado \curso{Ci\^encia da Computa\c{c}\~ao} \mes{Junho} \ano{2019}
+\data{\today}
+\cidade{Joinville}
+
+\instituicao{Universidade do Estado de Santa Catarina}
+\sigla{UDESC} \unidadeacademica{Centro de Ci\^encias Tecnol\'ogicas}
+
+\orientador{Rafael Stubs Parpinelli}
+%\examinadorum{Cristiano Damiani Vasconcellos}
+%\examinadordois{Cláudio César de Sá}
+
+\ttorientador{Doutor}
+\ttexaminadorum{Doutor}
+\ttexaminadordois{Doutor}
+
+\maketitle
+
+\agradecimento{Agradecimentos}
+  Agradeço ao professor Rafael Stubs Parpinelli por todo o suporte e motivação ao longo do período de desenvolvimento deste trabalho. Também agradeço a minha família, pelo apoio financeiro e emocional dado durante a faculdade. Por fim, gostaria de agradecer ao meus amigos, por estarem ao meu lado ao longo dessa jornada. 
+
+\newpage
+
+\begin{epigrafe}
+
+  ``If I have seen further it is by standing on the shoulders of giants.'' - Isaac Newton
+
+\end{epigrafe}
+
+\resumo{Resumo}
+
+\input{pre_texto/resumo}
+
+\noindent Palavras-chaves: Métodos de randomização, meta-heurísticas.
+
+\resumo{Abstract}
+
+\input{pre_texto/abstract}
+
+\noindent Keywords: Randomization methods, metaheuristics.
+
+\listoffigures
+
+\listoftables
+
+\input{pre_texto/acronimos}
+
+\tableofcontents
+
+\pagestyle{ruledheader}
+
+\input{texto_principal/introducao}
+\input{texto_principal/capitulos}
+\input{texto_principal/conclusao}
+
+\bibliographystyle{abnt-alf}
+\bibliography{bibliography.bib}
+
+\input{pos_texto/anexo}
+\input{pos_texto/apendice}
+
+\end{document}
+
