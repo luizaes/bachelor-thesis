@@ -1,1 +1,42 @@
 \chapter{Introdução}
+\label{cap:introducao}
+
+Na área de otimização, a classificação dos algoritmos pode ser dada através da sua natureza, dividindo os mesmos em duas categorias: algoritmos determinísticos e algoritmos estocásticos \cite{yang}. Algoritmos determinísticos seguem um procedimento rigoroso, e o caminho e valores de suas variáveis e função são repetíveis; por exemplo, o algoritmo subida de encosta é determinístico, pois a partir de um mesmo ponto de partida ele seguirá o mesmo caminho sempre \cite{yang}. Por outro lado, algoritmos estocásticos sempre terão algum tipo de aleatoriedade; algoritmos genéticos são um bom exemplo, onde o vetor de soluções será diferente a cada rodada, visto que o algoritmo utiliza um gerador de números pseudo-aleatórios \cite{yang}.
+
+Algoritmos estocásticos possuem dois tipos: heurísticas e meta-heurísticas \cite{yang}. Explicando de forma vaga, heurística significa "descobrir através de tentativa e erro" - soluções boas para um problema complexo podem ser encontradas em um tempo razoável, mas não existe garantia que a solução ótima será encontrada \cite{yang}. Mais adiante, foram desenvolvidas as meta-heurísticas, que significam "além" ou "alto-nível" e elas geralmente possuem um desempenho melhor do que as heurísticas \cite{yang}.
+
+Devido ao fato que meta-heurísticas são algoritmos estocásticos, podemos afirmar que a randomização é um dos princípios fundamentais para seus processos \cite{yang2}. A randomização permite que o algoritmo seja capaz de escapar de mínimos ou máximos locais, fazendo uma busca global, como também ajuda em buscas locais na vizinhança da atual melhor solução \cite{yang2}. Além disso, a randomização está fortemente ligada às propriedades de convergência do algoritmo \cite{caponetto}, pois ajuda a descobrir novos pontos no espaço de busca, movendo os agentes em direção à diferentes regiões do espaço \cite{fister}.
+
+Levando a importância da randomização para as meta-heurísticas em consideração, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos, como a distribuição Uniforme, Gaussiana, e de Cauchy, assim também como os mapas caóticos, como o Logístico e de Kent \cite{fister}. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar - acabam utilizando a distribuição uniforme, por ser o gerador aleatório padrão de muitas linguagens.
+
+Com essa motivação, a contribuição deste trabalho se encontra na análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas, como o Sine Cosine Algorithm (SCA) \cite{mirjalili} e a Evolução Diferencial Auto-adaptativa (jDE) \cite{brest}. Alguns outros trabalhos também abordam objetivos semelhantes, como o trabalho de \cite{saxena} que apresenta uma versão do \textit{Grey Wolf Optimizer} (GWO) utilizando um mapa caótico; e o trabalho de \cite{jana}, que apresenta várias versões de um algoritmo simples, o Passeio Aleatório (\textit{Random Walk}), adaptadas com diferentes mapas caóticos. Ambos os trabalhos apresentaram resultados promissores, mostrando que a utilização de mapas caóticos sobre as outras distribuições antes usadas resulta em uma melhora na capacidade de intensificação e diversificação dos agentes de busca \cite{saxena} e em uma melhor cobertura do espaço de busca \cite{jana}.
+
+\section{Problema}
+
+Levando em consideração a importância da randomização para as meta-heurísticas, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar - acabam utilizando a distribuição uniforme, por ser o gerador aleatório padrão de muitas linguagens.
+
+\section{Justificativa}
+
+Com esse problema em mente, a contribuição deste trabalho se encontra na análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas,
+
+\section{Objetivos}
+
+Este trabalho tem como objetivo geral a aplicação de diferentes métodos de randomização em algumas meta-heurísticas divergentes.
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+    \item Realizar um levantamento de diferentes meta-heurísticas;
+    \item Realizar um estudo sobre as meta-heurísticas selecionadas para o trabalho;
+    \item Levantar diferentes métodos de randomização que podem ser utilizados;
+    \item Estudar os métodos de randomização escolhidos;
+    \item Implementar as meta-heurísticas selecionadas;
+    \item Adaptar os algoritmos implementados para utilizarem os diferentes métodos de randomização escolhidos;
+    \item Realizar testes aplicando os algoritmos em funções \textit{benchmark};
+    \item Analisar o impacto dos diferentes métodos de randomização nos resultados apresentados;
+    \item Estudar possíveis problemas do mundo real nos quais os algoritmos em questão podem ser aplicados.
+\end{itemize}
+
+\section{Hipótese}
+
+Diferentes métodos de randomização possuem características distintas de intensificação e diversificação do espaço de busca, quando aplicados aos algoritmos meta-heurísticos. Sendo assim, cada algoritmo pode se aproveitar de um método de randomização específico para seus processos.
