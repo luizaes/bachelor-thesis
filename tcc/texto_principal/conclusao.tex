@@ -1,1 +1,65 @@
-\chapter{Considerações parciais}
+\chapter{Considerações Finais}
+
+
+%\section{Considerações}
+
+% Mudar considerações para englobar os experimentos
+
+Na primeira parte deste trabalho, apresentou-se uma introdução para o problema de métodos de randomização em meta-heurísticas, onde existem diversos métodos à disposição, entretanto, na maioria dos casos apenas a distribuição uniforme é utilizada por ser o gerador de números aleatórios padrão de muitas linguagens. Também foi mostrada uma fundamentação teórica, explicando os principais conceitos deste trabalho, como o que são distribuições probabilísticas, mapas caóticos, meta-heurísticas, intensificação e diversificação do espaço de busca, entre outros. Além disso, foi-se realizado um mapeamento sistemático da literatura, com a intenção de buscar uma visão geral da área de pesquisa em questão. E por fim, foi realizado um conjunto de experimentos iniciais, com o objetivo de verificar algumas hipóteses iniciais sobre o tema.
+
+Os resultados obtidos com o mapeamento mostram como a área de pesquisa que engloba os métodos de randomização em meta-heurísticas têm crescido ao longo dos anos, e possui a tendência de crescer ainda mais. Além disso, foi possível perceber como certos algoritmos têm se destacado na área de otimização, sendo utilizados em vários estudos, como foi o caso do \textit{Firefly Algorithm}. Outro ponto interessante foi a dominância dos mapas caóticos sendo utilizados como métodos de randomização; isso mostra como há uma grande popularidade em aplicar Teoria do Caos na área de otimização. Fora isso, também pode-se observar as diversas motivações apontadas pelos estudos para realizar essas adaptações dos algoritmos, e como muitos acreditam que a simples troca de uma distribuição por outra pode impactar imensamente os resultados dos algoritmos, melhorando seu desempenho de forma geral e evitando problemas como convergência lenta e prematura, além de estagnação em ótimos locais.
+
+Também pode-se compreender as diversas maneiras como os métodos de randomização podem ser aplicados nas meta-heurísticas - desde pontos específicos nos algoritmos, até o mecanismo de ponte entre intensificação e diversificação. Com tudo isso, pode-se concluir que os mapas caóticos se apresentam como uma boa escolha de método de randomização, visto sua imensa popularidade. Além disso, o local de aplicação do método de randomização pode depender do algoritmo, entretanto, levando em consideração a importância da intensificação e diversificação para as meta-heurísticas, pode-se concluir que a aplicação no balanço entre essas duas operações pode ser uma boa escolha.
+
+Além disso, os resultados dos experimentos iniciais mostraram como o mapa caótico Logístico não possuiu o desempenho esperado, se apresentando estatisticamente pior que as distribuições Uniforme e Gaussiana, principalmente quando aplicado ao algoritmo jDE. Outra conclusão foi que a convergência dos algoritmos foi muito rápida, em alguns casos sendo uma convergência prematura, onde os mesmos ficaram presos em ótimos locais; e que também a diversidade dos algoritmos se mostrou muito baixa nos gráficos, principalmente para o jDE e suas respectivas adaptações.
+
+
+\section{Proposta para o TCC-2}
+\label{sec:solucao}
+
+% Mudar proposta pra englobar o problema de diversidade no jDE também
+
+Levando em consideração o problema apresentado na seção \ref{cap:introducao}, a solução proposta para o mesmo no TCC-2 envolve realizar uma análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas: o SCA e o jDE. Essa análise mostrará se a utilização de métodos de randomização além do Uniforme pode ser benéfica para o desempenho das meta-heurísticas, além de nos apontar quais possuem o melhor desempenho dentre as escolhidas.
+
+Essa análise será realizada a partir da comparação dos resultados de duas meta-heurísticas e suas respectivas adaptações com diferentes métodos de randomização, inicialmente aplicadas à um conjunto de funções benchmark e, posteriormente, aplicadas à algum problema do mundo real. No jDE, essas adaptações serão feitas da seguinte maneira: os métodos de randomização selecionados e apresentados no capítulo \ref{cap:fundamentacao}, serão aplicados em todos os pontos do algoritmo que requerem uma randomização. Neste caso, como visto na Figura \ref{fig:jDE}, os métodos serão aplicados então em cinco pontos do jDE: ao inicializar os agentes no espaço de busca; ao calcular os novos parâmetros F e CR; ao realizar a operação de mutação e por fim, ao realizar a operação de \textit{crossover}. No SCA as adaptações serão feitas de maneira similar: aplicando os métodos de randomização em todos os pontos que requerem aleatoriedade no algoritmo, neste caso como visto na Figura \ref{fig:SCA}, ao iniciar os indivíduos da população no espaço de busca; e ao atualizar os parâmetros r2, r3 e r4.
+
+Depois dessas adaptações, também serão aplicadas duas outras estratégias nos algoritmos. A primeira estratégia se chama \textit{Generation Gap}, e será aplicada para aumentar a diversidade dos algoritmos, focando no problema de convergência prematura e de estagnação em ótimos locais, que foram vistos nos resultados dos experimentos iniciais. Esse método envolve manter em cada geração uma parte aleatória da população anterior. A segunda estratégia é combinar o algoritmo original com uma busca local, transformando o algoritmo em o que chamamos de um algoritmo memético. Isso será feito para que depois de aumentar a diversidade, podermos focar em uma solução ótima no espaço de busca.
+
+\section{Cronograma para o TCC-2}
+
+As etapas planejadas para desenvolvimento ao longo do TCC-2 são as seguintes:
+
+\begin{enumerate}
+    \item Adaptação dos algoritmos;
+    \item Aplicação dos algoritmos em funções \textit{benchmark};
+    \item Análise e comparação dos resultados;
+    \item Estudo e aplicação dos algoritmos no problema do mundo real escolhido;
+    \item Redação da monografia.
+\end{enumerate}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  \multirow{2}{*}{\textbf{\small{Etapas}}} &
+  \multicolumn{12}{|c|}{\textbf{\small{2019/2}}}\\
+  %\hline
+  \cline{2-13}
+  & \multicolumn{2}{|c|}{\textbf{J}} & \multicolumn{2}{|c|}{\textbf{A}} & \multicolumn{2}{|c|}{\textbf{S}} & \multicolumn{2}{|c|}{\textbf{O}} & \multicolumn{2}{|c|}{\textbf{N}} & \multicolumn{2}{|c|}{\textbf{D}}  \\
+  \hline \hline
+ \textbf{\small{1}} & \rowcolor{black} &  &  &  & \rowcolor{white} & & & & & & & \\
+  \hline
+  \textbf{\small{2}} & &  &  & \rowcolor{black} & & \rowcolor{white} & & & & & & \\
+  \hline
+  \textbf{\small{3}} & &  &  &  & \rowcolor{black} & & & \rowcolor{white} & & & & \\
+  \hline
+  \textbf{\small{4}} & &  &  &  & &  & & \rowcolor{black} &  & & & \rowcolor{white} \\
+  \hline
+  \textbf{\small{5}} & \rowcolor{black} &  &  &  & & & & & & & & \rowcolor{white} \\
+  \hline
+\end{tabular}
+\caption{Cronograma Proposto para o TCC-2}
+\label{tab:cronograma}
+\end{table}
+
+Onde no item 1, será realiza a adaptação dos algoritmos baseada nas decisões tomadas na seção \ref{sec:solucao}; no item 2, os algoritmos serão aplicados em um conjunto de funções \textit{benchmark} escolhido; no item 3, será feita a análise e comparação dos resultados, para verificar o impacto dessas adaptações nos algoritmos; no item 4, será realizado um estudo sobre o problema do mundo real escolhido, e os algoritmos serão aplicados sobre o mesmo; e por fim, no item 5, a monografia continuará a ser escrita ao longo do desenvolvimento deste trabalho. O cronograma para a realização dessas etapas pode ser visualizado na tabela \ref{tab:cronograma}.

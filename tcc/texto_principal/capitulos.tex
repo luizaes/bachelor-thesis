@@ -1,67 +1,157 @@
 \setlength\abovedisplayskip{0pt} \setlength\belowdisplayskip{0pt}
 \setlength\abovedisplayshortskip{0pt} \setlength\belowdisplayshortskip{0pt}
 
-\chapter{Fundamentação Teórica} \label{cap1}
+\chapter{Fundamentação Teórica} \label{cap:fundamentacao}
 Neste capítulo serão abordados conceitos e explicações relacionadas aos tópicos apresentados neste trabalho, para proporcionar uma melhor compreensão sobre os mesmos.
 
 \section{Distribuições Probabilísticas}
 
-Ocorre frequentemente que, ao realizar uma experiência, estamos principalmente interessados em algumas funções do resultado, em oposição ao resultado em si \cite{ross}. Por exemplo, quando jogamos dados, estamos muitas vezes interessados na soma dos dois dados e não preocupados com o resultado real \cite{ross}. Ou seja, podemos estar interessados em saber que a soma é sete e não se preocupar se o resultado real foi (1, 6) ou (2, 5) ou (3, 4) ou (4, 3) ou (5, 2) ou (6, 1) \cite{ross}. Essas quantidades de interesse, ou mais formalmente, essas funções de valor real definidas no espaço de amostra são conhecidas como variáveis aleatórias \cite{ross}.
+Ocorre frequentemente que, ao realizar uma experiência, tem-se interesse principalmente em algumas funções do resultado, em oposição ao resultado em si - por exemplo, ao jogar dados, muitas vezes o interesse se encontra na soma dos dois dados e não no resultado real, individual de cada dado \cite{ross}. Ou seja, pode-se querer saber que a soma é sete e não se preocupar se o resultado real foi (1, 6) ou (2, 5) ou (3, 4) ou (4, 3) ou (5, 2) ou (6, 1). Essas quantidades de interesse, ou mais formalmente, essas funções de valor real definidas no espaço de amostra são conhecidas como variáveis aleatórias \cite{ross}.
 
-Existem dois tipos de variáveis aleatórias: variáveis aleatórias discretas e variáveis aleatórias contínuas \cite{ross}. Variáveis discretas podem assumir apenas um número contável de valores, enquanto variáveis contínuas (as que serão utilizadas neste trabalho) possuem um conjunto incontável de possíveis valores \cite{ross}.
+Existem dois tipos de variáveis aleatórias, variáveis aleatórias discretas e variáveis aleatórias contínuas: variáveis discretas podem assumir apenas um número contável de valores, enquanto variáveis contínuas (as que serão utilizadas neste trabalho) possuem um conjunto incontável de possíveis valores \cite{ross}.
 
-Digamos que $X$ seja uma variável aleatória; nós podemos dizer que $X$ é uma variável contínua se existir uma função não-negativa $f(x)$, definida para todos os números reais $x \in (-\infty, \infty)$, possuindo a propriedade de que para qualquer conjunto $B$ de números reais \cite{ross}
+Sendo $X$ uma variável aleatória; pode-se dizer que $X$ é uma variável contínua se existir uma função não-negativa $f(x)$, definida para todos os números reais $x \in (-\infty, \infty)$, de forma que para qualquer conjunto $B$ de números reais a seguinte propriedade é válida \cite{ross}:
 
 \begin{equation}
 \label{eq:1}
     P\{X \in B\} = \int_{B} f(x) dx
 \end{equation}
 
-A função $f(x)$ é chamada de função densidade da variável aleatória $X$ \cite{ross}. Em outras palavras, a equação \ref{eq:1} mostra que a probabilidade de $X$ estar no conjunto $B$ pode ser obtida integrando a função densidade sobre o conjunto $B$ \cite{ross}.
+A função $f(x)$ é chamada de função densidade da variável aleatória $X$ - em outras palavras, a equação \ref{eq:1} mostra que a probabilidade de $X$ estar no conjunto $B$ pode ser obtida integrando a função densidade sobre o conjunto $B$ \cite{ross}.
 
-Variáveis aleatórias são tão importantes em experimentos aleatórios que às vezes nós essencialmente ignoramos o espaço amostral original do experimento e focamos na distribuição probabilística da variável aleatória \cite{montgomery}. A distribuição probabilística de uma variável aleatória $X$ é uma descrição das probabilidades
-associadas a possíveis valores de $X$ \cite{montgomery}.Em alguns casos, é conveniente expressar a probabilidade em termos de uma fórmula \cite{montgomery}.
+Variáveis aleatórias são tão importantes em experimentos aleatórios que às vezes o espaço amostral original do experimento é ignorado e foca-se na distribuição probabilística da variável aleatória \cite{montgomery}. A distribuição probabilística de uma variável aleatória $X$ é uma descrição das probabilidades
+associadas a possíveis valores de $X$; e em alguns casos, é conveniente expressar a probabilidade em termos de uma fórmula \cite{montgomery}.
 
-A seguir serão apresentadas as distribuições probabilísticas que serão utilizadas nos experimentos do trabalho em questão.
+A seguir serão apresentadas as distribuições probabilísticas que serão utilizadas nos experimentos finais do presente trabalho, apresentados no TCC-2.
 
 \subsection{Distribuição Uniforme}
-A distribuição uniforme é um método de randomização que distribui uniformemente os valores em um intervalo formado por seus dois parâmetros: \textit{a}, o limite inferior; e \textit{b}, o limite superior \cite{fister}. Essa distribuição é caracterizada por possuir a mesma probabilidade para todos os sub-intervalos com mesmo tamanho, e sua função de densidade é a seguinte \cite{fister}:
+A distribuição uniforme é um método de randomização que distribui uniformemente os valores em um intervalo formado por seus dois parâmetros: \textit{a}, o limite inferior; e \textit{b}, o limite superior - essa distribuição é caracterizada por possuir a mesma probabilidade para todos os sub-intervalos com mesmo tamanho, e sua função de densidade é a seguinte \cite{fister}:
 
 \begin{equation}
 P(x) = 
 \begin{cases}
-	\frac{1}{b - a}    & \text{$a \leq x \leq b$}\\
+    \frac{1}{b - a}    & \text{$a \leq x \leq b$}\\
     0 & \text{caso contrário.}
 \end{cases}
 \end{equation}
 
-\subsection{Distribução Gaussiana}
-A distribuição Gaussiana ou Normal é definida por dois parâmetros: a média ($\mu$) e o desvio-padrão ($\sigma$) \cite{fister}. Essa distribuição tem uma propriedade, onde aproximadamente dois terços dos valores caem em até um desvio-padrão da média \cite{fister}. A sua função de densidade é apresentada em \ref{eq:2} \cite{fister}:
+Uma representação visual em 1D da distribuição Uniforme pode ser vista na figura \ref{fig:1DUniforme}, onde 2000 pontos foram randomicamente gerados utilizando a mesma. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoUniforme.png}
+    \captionof{figure}{Representação Visual da Distribuição Uniforme}
+    \label{fig:1DUniforme}
+    \source{Própria autora.}
+}
+
+\subsection{Distribuição Gaussiana}
+A distribuição Gaussiana ou Normal é definida por dois parâmetros: a média ($\mu$) e o desvio-padrão ($\sigma$) \cite{fister}. Essa distribuição tem uma propriedade, onde aproximadamente dois terços dos valores caem em até um desvio-padrão da média, e a sua função de densidade é apresentada em \ref{eq:2} \cite{fister}:
 
 \begin{equation}
 \label{eq:2}
 P(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}
 \end{equation}
 
+Uma representação visual em 1D da distribuição Gaussiana pode ser vista na figura \ref{fig:1DGaussiana}, onde 2000 pontos foram randomicamente gerados utilizando a mesma, com parâmetros $\mu = 50$ e $\sigma = 15$. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados com certo número; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoGaussiana.png}
+    \captionof{figure}{Representação Visual da Distribuição Gaussiana}
+    \label{fig:1DGaussiana}
+    \source{Própria autora.}
+}
 
 \subsection{Distribuição de Cauchy}
-A distribuição de Cauchy é também definida por dois parâmetros: $\alpha$ e $\beta$, parâmetros que afetam a média e a extensão da distribuição respectivamente \cite{thomsen}. Sua função de densidade é como a seguir \cite{thomsen}:
+A distribuição de Cauchy é também definida por dois parâmetros: $\alpha$ e $\beta$, parâmetros que afetam a média e a extensão da distribuição respectivamente, e sua função de densidade é como a seguir \cite{thomsen}:
 
 \begin{equation}
 P(x) = \frac{1}{\beta \pi (1 + (\frac{x - \alpha}{\beta})^2)}
 \end{equation}
 
+Uma representação visual em 1D da distribuição de Cauchy pode ser vista na figura \ref{fig:1DCauchy}, onde 2000 pontos foram randomicamente gerados utilizando a mesma, com parâmetros $\alpha = 50$ e $\beta = 10$. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoCauchy.png}
+    \captionof{figure}{Representação Visual da Distribuição de Cauchy}
+    \label{fig:1DCauchy}
+    \source{Própria autora.}
+}
+
+\subsection{Distribuição Exponencial}
+
+A distribuição Exponencial descreve o tempo entre eventos em um processo de Poisson e é definida por dois parâmetros: \textit{x0}, que define o ponto inicial da distribuição e $\gamma$, que define a inclinação da curva da função de densidade da probabilidade, que é definida pela fórmula \ref{eq:exponencial} \cite{yu} \footnote{O asterisco encontrado nessa e em algumas outras referências representa os artigos resultados do mapeamento sistemático da literatura, apresentado mais a frente no trabalho.}.
+
+\begin{equation}
+\label{eq:exponencial}
+P(x) = 
+\begin{cases}
+    \gamma e^{-\gamma(x-x0)},    & \text{$x \geq 0$}\\
+    0, & \text{x < 0}
+\end{cases}
+\end{equation}
+
+Uma representação visual em 1D da distribuição Exponencial pode ser vista na figura \ref{fig:1DExponencial}, onde 2000 pontos foram randomicamente gerados utilizando a mesma, com parâmetros $x0 = 0$ e $\gamma = 0.5$. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoExponencial.png}
+    \captionof{figure}{Representação Visual da Distribuição Exponencial}
+    \label{fig:1DExponencial}
+    \source{Própria autora.}
+}
+
+\subsection{Distribuição Rayleigh}
+
+A distribuição de Rayleigh possui apenas um parâmetro: $\sigma$, que é responsável por controlar a planicidade da forma da função de densidade, que é definida pela equação \ref{eq:rayleigh} \cite{yu}.
+
+\begin{equation}
+\label{eq:rayleigh}
+P(x) = \frac{x}{\sigma^{2}}e^{-\frac{x^{2}}{2\sigma^{2}}}, \text{x $\geq$ 0}
+\end{equation}
+
+Uma representação visual em 1D da distribuição Rayleigh pode ser vista na figura \ref{fig:1DRayleigh}, onde 2000 pontos foram randomicamente gerados utilizando a mesma, com parâmetro $\sigma = 0.2$. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoRayleigh.png}
+    \captionof{figure}{Representação Visual da Distribuição Rayleigh}
+    \label{fig:1DRayleigh}
+    \source{Própria autora.}
+}
+
+\subsection{Distribuição Beta}
+
+A distribuição Beta padrão possui dois parâmetros: a e b e sua função de densidade é dada pela equação \ref{eq:beta}, onde $\Gamma$ define a função Gamma \cite{ali}.
+
+\begin{equation}
+\label{eq:beta}
+P(x) = \frac{\Gamma(a+b)}{\Gamma(a) + \Gamma(b)}x^{(a-1)}(1-x)^{(b-1)}, \text{ a, b > 0}
+\end{equation}
+
+Uma representação visual em 1D da distribuição Beta pode ser vista na figura \ref{fig:1DBeta}, onde 2000 pontos foram randomicamente gerados utilizando a mesma, com parâmetros $a = 2$ e $b = 2$. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoBeta.png}
+    \captionof{figure}{Representação Visual da Distribuição Beta}
+    \label{fig:1DBeta}
+    \source{Própria autora.}
+}
+
 \section{Mapas Caóticos}
 
-Um sistema dinâmico consiste em um conjunto de possíveis estados juntamente com uma regra que determina o estado atual em termos de estados passados \cite{alligood}. Esta regra deve ser determinística, o que significa que nós podemos determinar o estado atual unicamente a partir dos estados passados \cite{alligood}. Nenhuma aleatoriedade é permitida nesta definição de sistemas dinâmicos determinísticos \cite{alligood}.
+Um sistema dinâmico consiste em um conjunto de possíveis estados juntamente com uma regra que determina o estado atual em termos de estados passados - esta regra deve ser determinística, o que significa que pode-se determinar o estado atual unicamente a partir dos estados passados; além disso, nenhuma aleatoriedade é permitida nesta definição de sistemas dinâmicos determinísticos \cite{alligood}.
 
 %Existem dois tipos de sistemas dinâmicos \cite{alligood}. Se a regra for aplicada em momentos discretos, chamamos o sistema de sistema dinâmico de tempo discreto \cite{alligood}. Um sistema de tempo discreto tem o estado atual como entrada e atualiza a situação através da produção de um novo estado como saída \cite{alligood}. Pelo estado do sistema, queremos dizer qualquer informação que é necessária para a regra ser aplicada \cite{alligood}.
 
 %O outro tipo de sistema dinâmico é essencialmente o limite dos sistemas discretos com tempos de atualização menores \cite{alligood}. A regra que governa neste caso se torna um conjunto de equações diferenciais, e o termo sistemas dinâmicos de tempo contínuo é utilizado \cite{alligood}.
 
-Existem sistemas dinâmicos determinísticos nos quais a evolução temporal tem uma dependência forte nas condições iniciais \cite{cattani}. Ou seja, as equações diferenciais que governam a evolução do sistema são muito sensíveis às condições iniciais \cite{cattani}. Dessa maneira, medidas feitas em um estado do sistema em um certo momento podem não nos permitir prever a situação futura do sistema, apesar do fato de que as equações governantes são bem conhecidas \cite{cattani}, visto que esses sistemas se comportam de maneira imprevisível \cite{fister}. Por definição, essas equações são chamadas de caóticas \cite{cattani}.
+Existem sistemas dinâmicos determinísticos nos quais a evolução temporal tem uma dependência forte nas condições iniciais, ou seja, as equações diferenciais que governam a evolução do sistema são muito sensíveis às condições iniciais \cite{cattani}. Dessa maneira, medidas feitas em um estado do sistema em um certo momento podem não nos permitir prever a situação futura do sistema, apesar do fato de que as equações governantes são bem conhecidas \cite{cattani}, visto que esses sistemas se comportam de maneira imprevisível \cite{fister}. Por definição, essas equações são chamadas de caóticas.
 
-Em alguns casos, é muito difícil estudar a evolução de um sistema integrando suas equações diferenciais \cite{cattani}. Ás vezes também é difícil construir um modelo matemático exato para estudar o sistema \cite{cattani}. Nesses casos, é possível conseguir uma boa descrição de um processo caótico usando um modelo iterativo algébrico chamado mapeamento \cite{cattani}.
+Em alguns casos, é muito difícil estudar a evolução de um sistema integrando suas equações diferenciais, e às vezes também é difícil construir um modelo matemático exato para estudar o sistema - nesses casos, é possível conseguir uma boa descrição de um processo caótico usando um modelo iterativo algébrico chamado mapeamento \cite{cattani}.
 
 Existem inúmeros sistemas caóticos que são estudados utilizando a abordagem de mapeamento \cite{cattani}. Algumas dessas abordagens, que serão utilizadas neste trabalho, são apresentadas a seguir.
 
@@ -73,38 +163,142 @@ O mapa Logístico é um mapa caótico. É determinado pela equação \ref{eq:log
 x_{n + 1} = r x_{n} (1 - x_{n})
 \end{equation}
 
-\subsection{Mapa de Kent}
-Por fim, o mapa de Kent é também um mapa caótico, definido pela equação \ref{eq:kent}, onde $x(n) \in$ $[0, 1]$ e $m$ é um número no intervalo $0 < m < 1$ que quando igual a 0.3 apresenta comportamento caótico \cite{fister}. 
-
-\begin{equation}
-\label{eq:kent}
-x(n + 1) = 
-\begin{cases}
-	\frac{x(n)}{m}    & \text{$0 < x(n) \leq m$}\\
-    \frac{1 - x(n)}{1 - m} & \text{$m < x(n) < 1$}
-\end{cases}
-\end{equation}
-
-Para melhor visualização, a figura \ref{fig:dist} apresenta uma representação visual de como cada método distribui 100 valores em um intervalo de $[0, 100]$. Em relação à aplicação em meta-heurísticas, podemos observar nos gráficos que a distribuição uniforme e o mapa caótico de Kent realizam uma diversificação do espaço de busca, distribuindo os valores de forma espaçada no intervalo. Já as distribuições Gaussiana ($\mu = 50$ e $\sigma = 15$), de Cauchy ($\alpha = 50$ e $\beta = 10$) e o mapa caótico Logístico apresentam uma intensificação do espaço de busca, focando a distribuição de valores em torno de um local específico do intervalo.
+Uma representação visual em 1D do mapa Logístico pode ser vista na figura \ref{fig:1DLogistico}, onde 2000 pontos foram randomicamente gerados utilizando a mesmo. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
 
 {
     \centering
-    \includegraphics[width=0.9\linewidth]{figuras/montagem.png}
-    \captionof{figure}{Representação visual das distribuições}
-    \label{fig:dist}
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoLogistica.png}
+    \captionof{figure}{Representação Visual do Mapa Logístico}
+    \label{fig:1DLogistico}
+    \source{Própria autora.}
 }
+
+% \subsection{Mapa de Kent}
+% Por fim, o mapa de Kent é também um mapa caótico, definido pela equação \ref{eq:kent}, onde $x(n) \in$ $[0, 1]$ e $m$ é um número no intervalo $0 < m < 1$ que quando igual a 0.3 apresenta comportamento caótico \cite{fister}. 
+
+% \begin{equation}
+% \label{eq:kent}
+% x(n + 1) = 
+% \begin{cases}
+%   \frac{x(n)}{m}    & \text{$0 < x(n) \leq m$}\\
+%     \frac{1 - x(n)}{1 - m} & \text{$m < x(n) < 1$}
+% \end{cases}
+% \end{equation}
+
+\subsection{Mapa Sinusoidal}
+
+Esse mapa caótico pode ser definido pela fórmula \ref{eq:sinusoidal}, onde quando a = 2.3 ele exibe comportamento caótico \cite{gandomi}.
+
+\begin{equation}
+\label{eq:sinusoidal}
+x_{n + 1} = a x_{n}^{2} sin(\pi x_{n})
+\end{equation}
+
+Uma representação visual em 1D do mapa Sinusoidal pode ser vista na figura \ref{fig:1DSinusoidal}, onde 2000 pontos foram randomicamente gerados utilizando a mesmo. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoSinusoidal.png}
+    \captionof{figure}{Representação Visual do Mapa Sinusoidal}
+    \label{fig:1DSinusoidal}
+    \source{Própria autora.}
+}
+
+\subsection{Mapa Piecewise}
+
+O mapa caótico Piecewisse, é definido pela fórmula \ref{eq:piecewise}, onde P é o parâmetro de controle, normalmente escolhido entre 0.0 e 0.5 \cite{gandomi}. Neste estudo utilizaremos P = 0.4.
+
+\begin{equation}
+\label{eq:piecewise}
+x_{n + 1} =
+\begin{cases}
+    \frac{x_{n}}{P}, & \text{$0 \leq x_{n} < P$}\\
+    \frac{x_{n} - P}{0.5 - P}, & \text{$P \leq x_{n} < \frac{1}{2}$}\\
+    \frac{1-P-x_{n}}{0.5 - P}, & \text{$\frac{1}{2} \leq x_{n} < 1-P $}\\
+    \frac{1-x_{n}}{P}, & \text{$1-P \leq x_{n} < 1$}\\
+\end{cases}
+\end{equation}
+
+Uma representação visual em 1D do mapa Piecewise pode ser vista na figura \ref{fig:1DPiecewise}, onde 2000 pontos foram randomicamente gerados utilizando a mesmo. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoPiecewise.png}
+    \captionof{figure}{Representação Visual do Mapa Piecewise}
+    \label{fig:1DPiecewise}
+    \source{Própria autora.}
+}
+
+\subsection{Mapa Tent}
+
+O mapa caótico Tent é similar ao mapa Logístico e é definido pela equação \ref{eq:tent} \cite{gandomi}.
+
+\begin{equation}
+\label{eq:tent}
+x_{n + 1} =
+\begin{cases}
+    \frac{x_{n}}{0.7}, & \text{$x_{n} < 0.7$} \\
+    \frac{10}{3}(1-x_{n}) & \text{$x_{n} \geq 0.7$} 
+\end{cases}
+\end{equation}
+
+Uma representação visual em 1D do mapa Tent pode ser vista na figura \ref{fig:1DTent}, onde 2000 pontos foram randomicamente gerados utilizando a mesmo. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoTent.png}
+    \captionof{figure}{Representação Visual do Mapa Tent}
+    \label{fig:1DTent}
+    \source{Própria autora.}
+}
+
+\subsection{Mapa Circle}
+
+O mapa Circle é representado pela equação \ref{eq:circle}, e quando seus parâmetros a e b forem igualados a 0.5 e 0.2, respectivamente, ele apresenta um comportamento caótico \cite{gandomi}.
+
+\begin{equation}
+\label{eq:circle}
+x_{n + 1} = x_{n} + b - (\frac{a}{2\pi}) sin(2\pi x_{n})mod(1)
+\end{equation}
+
+Uma representação visual em 1D do mapa Circle pode ser vista na figura \ref{fig:1DCircle}, onde 2000 pontos foram randomicamente gerados utilizando a mesmo. O gráfico é composto pelo eixo x, onde temos a quantidade de pontos gerados; e pelo eixo y, onde temos os respectivos números que foram gerados, em um intervalo de $[0, 100]$.
+
+{
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/DistribuicaoCircle.png}
+    \captionof{figure}{Representação Visual do Mapa Circle}
+    \label{fig:1DCircle}
+    \source{Própria autora.}
+}
+
+% Para melhor visualização, a figura \ref{fig:dist} apresenta uma representação visual em 1D de como cada método distribui 2000 valores em um intervalo de $[0, 100]$. Em relação à aplicação em meta-heurísticas, podemos observar nos gráficos que a distribuição uniforme e o mapa caótico de Kent realizam uma diversificação do espaço de busca, distribuindo os valores de forma espaçada no intervalo. Já as distribuições Gaussiana ($\mu = 50$ e $\sigma = 15$), de Cauchy ($\alpha = 50$ e $\beta = 10$) e o mapa caótico Logístico apresentam uma intensificação do espaço de busca, focando a distribuição de valores em torno de um local específico do intervalo.
+
+% {
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{figuras/montagem1D.png}
+%     \captionof{figure}{Representação visual em 1D das distribuições}
+%     \label{fig:dist}
+% }
 
 \section{Meta-heurísticas}
 
-Na área de otimização, a classificação dos algoritmos pode ser dada através da sua natureza, dividindo os mesmos em duas categorias: algoritmos determinísticos e algoritmos estocásticos \cite{yang}. Algoritmos determinísticos seguem um procedimento rigoroso, e o caminho e valores de suas variáveis e função são repetíveis; por exemplo, o algoritmo subida de encosta é determinístico, pois a partir de um mesmo ponto de partida ele seguirá o mesmo caminho sempre \cite{yang}. Por outro lado, algoritmos estocásticos sempre terão algum tipo de aleatoriedade; algoritmos genéticos são um bom exemplo, onde o vetor de soluções será diferente a cada rodada, visto que o algoritmo utiliza um gerador de números pseudo-aleatórios \cite{yang}.
+% Na área de otimização, a classificação dos algoritmos pode ser dada através da sua natureza, dividindo os mesmos em duas categorias: algoritmos determinísticos e algoritmos estocásticos \cite{yang}. Algoritmos determinísticos seguem um procedimento rigoroso, e o caminho e valores de suas variáveis e função são repetíveis; por exemplo, o algoritmo subida de encosta é determinístico, pois a partir de um mesmo ponto de partida ele seguirá o mesmo caminho sempre \cite{yang}. Por outro lado, algoritmos estocásticos sempre terão algum tipo de aleatoriedade; algoritmos genéticos são um bom exemplo, onde o vetor de soluções será diferente a cada rodada, visto que o algoritmo utiliza um gerador de números pseudo-aleatórios \cite{yang}.
 
-Algoritmos estocásticos possuem dois tipos: heurísticas e meta-heurísticas \cite{yang}. Explicando de forma vaga, heurística significa "descobrir através de tentativa e erro" - soluções boas para um problema complexo podem ser encontradas em um tempo razoável, mas não existe garantia que a solução ótima será encontrada \cite{yang}. Mais adiante, foram desenvolvidas as meta-heurísticas, que significam "além" ou "alto-nível" e elas geralmente possuem um desempenho melhor do que as heurísticas \cite{yang}.
+% Algoritmos estocásticos possuem dois tipos: heurísticas e meta-heurísticas \cite{yang}. Explicando de forma vaga, heurística significa "descobrir através de tentativa e erro" - soluções boas para um problema complexo podem ser encontradas em um tempo razoável, mas não existe garantia que a solução ótima será encontrada \cite{yang}. Mais adiante, foram desenvolvidas as meta-heurísticas, que significam "além" ou "alto-nível" e elas geralmente possuem um desempenho melhor do que as heurísticas \cite{yang}.
 
-A seguir serão apresentados e explicados as meta-heurísticas que serão aplicadas nos experimentos deste trabalho.
+Como dito anteriormente, as meta-heurísticas são métodos que significam "além" ou "alto-nível" e possuem, geralmente, um desempenho melhor do que as heurísticas \cite{yang}. Além disso, todos os algoritmos meta-heurísticos usam uma combinação entre aleatoriedade/randomização e busca local \cite{yang}. As meta-heurísticas podem ser consideradas como uma maneira eficiente de produzir soluções aceitáveis através da tentativa e erro, para problemas complexos, em um tempo razoavelmente prático \cite{yang2}.
+
+Em geral, o desempenho de meta-heurísticas depende de dois componentes chaves, intensificação e diversificação: Intensificação significa focar a busca em uma região local explorando a informação de que uma solução ótima atual se encontra nessa região \cite{sahib}. A intensificação usa qualquer informação do problema de interesse para gerar novas soluções que são melhores do que as soluções encontradas anteriormente; a vantagem disso é que usualmente ela leva a níveis de convergência altos, e a desvantagem é que ela pode ficar facilmente presa em ótimos locais \cite{sahib}. 
+
+Já a diversificação ajuda a gerar soluções diversas com o objetivo de explorar o espaço de busca em uma escala global, permitindo assim explorar esse espaço de uma forma mais eficiente, e gerar soluções distantes das soluções atuais; a vantagem disso é que ela é menos provável de ficar presa em ótimos locais, e a otimalidade global pode se tornar mais alcançável, entretanto, sua desvantagem é que pode levar à uma velocidade de convergência muito lenta \cite{sahib}.
+
+O balanço entre esses dois componentes é extremamente importante para a eficiência e desempenho do algoritmo - muita intensificação e pouca diversificação pode causar o algoritmo a ficar preso em ótimos locais, o que pode dificultar ou até prevenir o algoritmo de encontrar o ótimo global \cite{yang2}. Por outro lado, muita diversificação e pouca intensificação pode dificultar o objetivo do algoritmo de convergir, diminuindo seu desempenho \cite{yang2}.
+
+A seguir serão apresentadas e explicadas as meta-heurísticas que serão aplicadas neste trabalho.
 
 \subsection{Evolução Diferencial}
 
-A Evolução Diferencial (DE) é um algoritmo evolucionário para otimização global sob espaços contínuos \cite{brest}. De forma geral, o algoritmo cria novos candidatos à solução combinando o indivíduo parente e diversos outros indivíduos da mesma população \cite{brest}. O candidato apenas substitui o parente se possuir um valor \textit{fitness} melhor \cite{brest}. A Evolução Diferencial possui três parâmetros:
+A Evolução Diferencial (DE) é um algoritmo evolucionário para otimização global sobre espaços contínuos \cite{brest}. De forma geral, o algoritmo cria novos candidatos à solução combinando o indivíduo parente e diversos outros indivíduos da mesma população \cite{brest}. O candidato apenas substitui o parente se possuir um valor \textit{fitness} melhor \cite{brest}. A Evolução Diferencial possui três parâmetros:
 
 \begin{itemize}
     \item F: fator de amplificação do vetor de diferença (escala de mutação);
@@ -131,7 +325,7 @@ Depois da mutação, uma operação de \textit{crossover} binária é realizada 
 \begin{equation}
 u_i,_j,_G = 
 \begin{cases}
-	V,_{i,j,G}    & \text{se $rand(0, 1) \leq CR$ or $j = j_{rand}$}\\
+    V,_{i,j,G}    & \text{se $rand(0, 1) \leq CR$ or $j = j_{rand}$}\\
     x,_{i,j,G} & \text{caso contrário.}
 \end{cases}
 \end{equation}
@@ -144,14 +338,14 @@ A seleção seleciona, de acordo com o valor \textit{fitness} do vetor da popula
 
 \subsubsection{Evolução Diferencial Auto-Adaptativa}
 
-A Evolução Diferencial Auto-Adaptativa (jDE) usa um mecanismo auto-adaptativo para controlar os parâmetros F e CR \cite{brest}. Cada indivíduo da população é extendido para possuir seus próprios valores de F e CR \cite{brest}. Melhores valores para esses parâmetros de controle levam a melhores indivíduos, que consequentemente, possuem mais chances de sobreviver e produzir descendentes, propagando esses melhores valores de parâmetros \cite{brest}.
+A Evolução Diferencial Auto-Adaptativa (jDE) usa um mecanismo auto-adaptativo para controlar os parâmetros F e CR \cite{brest}. Cada indivíduo da população é estendido para possuir seus próprios valores de F e CR \cite{brest}. Melhores valores para esses parâmetros de controle levam a melhores indivíduos, que consequentemente, possuem mais chances de sobreviver e produzir descendentes, propagando esses melhores valores de parâmetros \cite{brest}.
 
 Então, os valores para os parâmetros de controle são calculados como a seguir \cite{brest}:
 
 \begin{equation}
 F_{i,G+1} = 
 \begin{cases}
-	Fl + rand1 * Fu    & \text{se $rand2 < T1$}\\
+    Fl + rand1 * Fu    & \text{se $rand2 < T1$}\\
     F_{i,G} & \text{caso contrário.}
 \end{cases}
 \end{equation}
@@ -159,7 +353,7 @@ F_{i,G+1} =
 \begin{equation}
 CR_{i,G+1} = 
 \begin{cases}
-	rand3    & \text{se $rand4 < T2$}\\
+    rand3    & \text{se $rand4 < T2$}\\
     CR_{i,G} & \text{caso contrário.}
 \end{cases}
 \end{equation}
@@ -170,21 +364,22 @@ Como podemos observar no diagrama da figura \ref{fig:jDE}, temos que o algoritmo
 
 {
     \centering
-    \includegraphics[width=0.9\linewidth]{figuras/Diagrama_de_Blocos.png}
+    \includegraphics[width=1.1\linewidth]{figuras/Diagrama_de_Blocos.png}
     \captionof{figure}{Diagrama de Blocos do jDE}
     \label{fig:jDE}
+    \source{Própria autora.}
 }
 
 \subsection{Algoritmo Seno e Cosseno}
 
-O SCA (Sine Cosine Algorithm) cria múltiplas soluções randômicas iniciais e requer que as mesmas flutuem em direção ou na direção oposta da melhor solução usando um modelo matemático baseado nas funções seno e cosseno \cite{mirjalili}.
+O SCA (\textit{Sine Cosine Algorithm}) cria múltiplas soluções randômicas iniciais e requer que as mesmas flutuem em direção ou na direção oposta da melhor solução usando um modelo matemático baseado nas funções seno e cosseno \cite{mirjalili}.
 
 A seguinte equação de \textit{update} é utilizada para realizar as fases de intensificação e diversificação do algoritmo \cite{mirjalili}:
 
 \begin{equation}
 x_i^{t+1} = 
 \begin{cases}
-	x_i^t + r1 * seno(r2) * |r3 * p_i^t - x_i^t|    & \text{se $r4 < 0.5$}\\
+    x_i^t + r1 * seno(r2) * |r3 * p_i^t - x_i^t|    & \text{se $r4 < 0.5$}\\
     x_i^t + r1 * cosseno(r2) * |r3 * p_i^t - x_i^t| & \text{se $r4 \geq 0.5$}
 \end{cases}
 \end{equation}
@@ -197,12 +392,12 @@ Onde $p_i^t$ é o ponto de destino, ou seja, a melhor solução até então enco
         r1 = a - t * \frac{a}{T}
     \end{equation}
     Onde $t$ é a iteração atual; $T$ é a quantidade máxima de iterações; e $a$ é uma constante com o valor de 2;
-    \item r2 - parâmetro randômico dentro do intervalo $[0, 2\pi]$ que define o quão grande deve ser o movimento em direção ou direção oposta ao ponto de destino;
-    \item r3 - peso aleatório no intervalo $[0, 2]$ que estocasticamente enfatiza ($r3 > 1$) ou não ($r3 < 1$) o efeito do ponto de destino para calcular a distância do movimento;
+    \item r2 - valor aleatório dentro do intervalo $[0, 2\pi]$ que define o quão grande deve ser o movimento em direção ou direção oposta ao ponto de destino;
+    \item r3 - valor aleatório no intervalo $[0, 2]$ que estocasticamente enfatiza ($r3 > 1$) ou não ($r3 < 1$) o efeito do ponto de destino para calcular a distância do movimento;
     \item r4 - valor aleatório no intervalo $[0, 1]$ que faz a mudança entre seno e cosseno.
 \end{itemize}
 
-O SCA começa com um conjunto de soluções aleatórias, e então salva a melhor solução encontrada até o momento, a atribui ao ponto de destino e atualiza todas as outras soluções com respeito à ela \cite{mirjalili}. Ao mesmo tempo, os intervalos das funções seno e cosseno são atualizados enquanto o contador de iterações aumenta \cite{mirjalili}. O algoritmo termina quando o número máximo de iterações é alcançado ou quando uma certa acurácia do resultado é alcançada \cite{mirjalili}.
+O SCA começa com um conjunto de soluções aleatórias, e então salva a melhor solução encontrada até o momento, a atribui ao ponto de destino e atualiza todas as outras soluções com respeito a ela \cite{mirjalili}. Ao mesmo tempo, os intervalos das funções seno e cosseno são atualizados enquanto o contador de iterações aumenta \cite{mirjalili}. O algoritmo termina quando o número máximo de iterações é alcançado ou quando uma certa acurácia do resultado é alcançada \cite{mirjalili}.
 
 Como podemos observar no diagrama de blocos da figura \ref{fig:SCA}, existem dois pontos no algoritmo que utiliza-se a randomização. O primeiro é ao iniciar os indivíduos da população no espaço de busca; e o segundo é ao atualizar os parâmetros r2, r3 e r4 do SCA. Para realizar essa randomização, o algoritmo por padrão utiliza a distribuição uniforme.
 
@@ -211,44 +406,666 @@ Como podemos observar no diagrama de blocos da figura \ref{fig:SCA}, existem doi
     \includegraphics[width=0.7\linewidth]{figuras/Diagrama_SCA.png}
     \captionof{figure}{Diagrama de Blocos do SCA}
     \label{fig:SCA}
+    \source{Própria autora.}
 }
 
-\section{Problemas do Mundo Real e Funções Benchmark}
-
-Em geral, problemas sem restrições podem ser classificados em duas categorias: funções de teste, ou funções \textit{benchmark}, e problemas do mundo real \cite{jamil}. As funções de teste são problemas artificiais e podem ser usadas para avaliar o comportamento de um algoritmo em situações diversas e difíceis \cite{jamil}. Os problemas artificiais podem incluir mínimos globais únicos, únicos ou múltiplos mínimos globais na presença de muitos mínimos locais, vales longos e estreitos, efeitos de espaço nulo e superfícies planas \cite{jamil}. Esses problemas podem ser facilmente manipulados e modificados para testar os algoritmos em diversos cenários \cite{jamil}. Alguns exemplos de funções \textit{benchmark} são as funções Schaffer, Rastrigin, Griewank e Rosenbrock. 
-
-Por outro lado, os problemas do mundo real se originam de campos diferentes como física, química, engenharia, matemática, entre outros \cite{jamil}. Esses problemas são difíceis de manipular e podem conter expressões algébricas ou diferenciais complicadas e podem exigir uma quantidade significativa de dados para compilar \cite{jamil}. 
-
-\chapter{Trabalhos Relacionados} \label{chap2}
-
-%\section{Grey Wolf Optimizer com Mapa Caótico}
-
-%De acordo com o teorema No Free Lunch (NFL), nenhuma metaheurística é adequada para todas as aplicações existentes \cite{saxena}. Sendo assim, é sempre necessário que algumas modificações sejam incorporadas para fazer com que uma metaherística se torne adequada para uma aplicação em particular \cite{saxena}. Além disso, sequências caóticas são símbolos de aleatoriedade e comportamento barulhento - por isso, muitos algoritmos de otimização têm utilizado essas sequências caóticas ao invés de Passeios Aleatórios (geração de números aleatórios), pelo fato de que os passeios aleatórios nem sempre implementam a busca global muito bem \cite{saxena}.
-
-%Com essa motivação, o trabalho de \cite{saxena} propõe uma nova variante do algoritmo Grey Wolf Optimizer (GWO), o $\beta$-GWO. Este trabalho adapta o algoritmo original, que é baseado na hierarquia de liderança e nas estratégias de caça dos lobos cinza \cite{saxena}. Os lobos cinza vivem em matilhas divididas em quatro categorias: Alpha, Beta, Omega e Delta \cite{saxena}. Os principais passos do algoritmo envolvem circular a presa; caçar a presa e atacar a presa, fase responsável pela intensificação do algoritmo que é realizada pelo decremento linear do vetor de controle $\Vec{a}$ (2 até 0) \cite{saxena}. O decremento deste parâmetro permite que os lobos cinza ataquem a presa enquanto ela para de se mover \cite{saxena}.
-
-%A adaptação feita foi mudar o vetor de controle $\Vec{a}$ caoticamente de forma que a diversificação do espaço de busca possa se manter viva até os últimos passos das iterações \cite{saxena}. Baseado nas observações feitas ao longo do trabalho, os autores concluíram que incorporar caos no mecanismo de mudança entre as fases de diversificação e intensificação melhora esse mecanismo \cite{saxena}. Além disso, habilita os agentes de busca com uma melhor capacidade de intensificação e diversificação até a última iteração e, também aumenta a velocidade de busca após a fase de diversificação, que resulta em melhores características de convergência \cite{saxena}.
-
-%\section{Análise de Paisagem de Fitness Usando um Algoritmo de Passeio Aleatório Baseado em Caos}
-
-%A complexidade de um problema e a habilidade de uma técnica de busca heurística para obter a solução ótima pode ser determinada usando uma \textit{Fitness Landscape Analysis} (FLA) ou uma análise de paisagem de aptidão \cite{jana}. Uma paisagem pode ser interpretada como uma superfície no espaço de busca que define o \textit{fitness} de cada solução potencial \cite{jana}. FLA é um método que detecta e destaca características salientes de um problema de otimização, como a robustez, modalidade, decepção, presença de funis, suavidade, neutralidade e separabilidade de variáveis \cite{jana}.
-
-%Um \textit{Random Walk} (RW) ou passeio aleatório é uma formalização matemática de um caminho consistindo em passos aleatórios sucessivos \cite{jana}. Algoritmos RW foram desenvolvidos para capturar uma sequência de interação vizinha de pontos de amostra sobre o espaço de busca, sem usar nenhuma informação sobre o \textit{fitness} do problema de otimização \cite{jana}. O passeio aleatório simples é construído através da amostragem de um ponto inicial $X_1$ aleatoriamente, e depois gerando os próximos pontos $X_2 ... X_n$ até que um número pré-definido de pontos $N$ na vizinhança seja alcançado \cite{jana}.
-
-%Sendo assim, o trabalho de \cite{jana} propõe o algoritmo Chaotic Random Walk (CRW) em espaços de busca contínuos para obter a estrutura da paisagem para determinar as características de um problema. CRW é um resultado baseado na inspiração do comportamento caótico em conexão com a geração determinística de números pseudo-aleatórios \cite{jana}. A ideia é utilizar esses números pseudo-aleatórios dados por um mapa caótico para gerar pontos de amostra para o RW \cite{jana}. Esses números pseudo-aleatórios controlam o tamanho dos passos e determinam a direção do algoritmo proposto \cite{jana}.
-
-%Em Teoria do Caos, mapas caóticos são usados para gerar sequências de números pseudo-aleatórios conhecidos como números caóticos pseudo-aleatórios \cite{jana}. Alguns exemplos são o mapa Logístico, mapa de Tent, mapa de Chebyshev, mapa Cúbico e mapa ICMIC \cite{jana}.
-
-%Como resultado, o trabalho de \cite{jana} mostra que a distribuição dos pontos de amostra do CRW sobre o espaço de busca é mais uniforme que a distribuição do algoritmo Random Walk simples, e consequentemente, providencia uma melhor cobertura de toda a área do espaço de busca \cite{jana}.
-
-%\section{Evolução Diferencial e Séries Caóticas}
-
-%Pesquisas recentes em abordagens caóticas para meta-heurísticas usam vários mapas caóticos no lugar de geradores de números pseudo-aleatórios (PRNGs) \cite{senkerik}. Essa abordagem caótica não convencional está fortemente ligada com a importância da randomização dentro das heurísticas como compensação por um número limitado de movimentos de busca \cite{senkerik}. Caos com as suas propriedades como ergodicidade, estocasticidade, auto-similaridade e densidade das órbitas periódicas se tornou bastante popular e uma ferramenta moderna para melhorar o desempenho de várias técnicas computacionais evolucionárias (ECTs) \cite{senkerik}.
-
-%Mesmo assim, as perguntas se mantém, quanto ao por que ele funciona, e porque pode ser um benefício utilizar sequências caóticas para números pseudo-aleatórios dirigindo a seleção, mutação, crossover e outros processos \cite{senkerik}. Sendo assim, o trabalho de \cite{senkerik} é destinado a analisar a influência das sequências caóticas no desempenho de quatro variantes da Evolução Diferencial (DE): os esquemas de mutação do DE original DE/Rand/1 e DE/Best/1; jDE; e SHADE.
-
-%A ideia geral é substituir o PRNG padrão com um sistema caótico; e no trabalho de \cite{senkerik}, nove sistemas foram utilizados: mapa Arnold Cat; mapa Burgers; Logístico Atrasado; mapa Padrão Dissipativo; mapa Hénon; mapa Ikeda; mapa Lozi; mapa Sinai; e mapa Tinkerbell. De maneira geral, as versões caóticas aparentam ser muito eficientes para encontrar os valores mínimos da função objetivo \cite{senkerik}. Além disso, o desempenho do comparado DE original e suas variantes caóticas foi similar, ou em alguns casos, as versões caóticas foram significamente piores \cite{senkerik}.
 
 
+%Com muita intensificação e pouca diversificação o algoritmo pode convergir rapidamente para uma solução ótima, mas que pode não ser o ótimo global \cite{sahib}. No contrário, pouca intensificação e muita diversificação pode causar convergência lenta, mas prevenindo o algoritmo de ficar preso em ótimos locais \cite{sahib}. Sendo assim, implementar uma meta-heurística com um balanço apropriado entre intensificação e diversificação é essencial e pode levar a um desempenho ótimo \cite{sahib}.
 
-\chapter{Resultados Parciais} \label{cap3}
+% \section{Problemas do Mundo Real e Funções Benchmark}
+
+% Em geral, problemas \ sem restrições podem ser classificados em duas categorias: funções de teste, ou funções \textit{benchmark}, e problemas do mundo real \cite{jamil}. As funções de teste são problemas artificiais e podem ser usadas para avaliar o comportamento de um algoritmo em situações diversas e difíceis \cite{jamil}. Os problemas artificiais podem incluir mínimos globais únicos, únicos ou múltiplos mínimos globais na presença de muitos mínimos locais, vales longos e estreitos, efeitos de espaço nulo e superfícies planas \cite{jamil}. Esses problemas podem ser facilmente manipulados e modificados para testar os algoritmos em diversos cenários \cite{jamil}. Alguns exemplos de funções \textit{benchmark} são as funções Schaffer, Rastrigin, Griewank e Rosenbrock. 
+
+% Por outro lado, os problemas do mundo real se originam de campos diferentes como física, química, engenharia, matemática, entre outros \cite{jamil}. Esses problemas são difíceis de manipular e podem conter expressões algébricas ou diferenciais complicadas e podem exigir uma quantidade significativa de dados para compilar \cite{jamil}. 
+
+\chapter{Revisão da Literatura} \label{chap2}
+
+Neste capítulo será apresentado o Mapeamento Sistemático da Literatura (MSL) realizado, com intuito de proporcionar uma visão geral da área de pesquisa deste trabalho. A metodologia utilizada para o desenvolvimento deste mapeamento é baseada nas diretrizes propostas por \cite{petersen}. O trabalho foi realizado no mês de Abril do ano de 2019.
+
+\section{Método de Busca}
+
+Para a execução da busca, foi definida uma string de busca, apresentada na tabela \ref{tab:string}. Inicialmente, alguns termos de interesse foram estabelecidos, como: \textit{probability distribution}, \textit{randomization methods} e a versão em inglês britânico do mesmo termo; assim também como \textit{chaotic series}, \textit{chaotic sequence} e \textit{chaotic map}. Essas expressões foram utilizadas para encobrir as possíveis representações utilizadas para os diferentes métodos de randomização, incluindo mapas caóticos. Além disso, o termo \textit{metaheuristic} foi utilizado para representar o tipo de algoritmo que estamos buscando, que neste caso, são as meta-heurísticas.
+
+\begin{table}[!htpb]
+    \centering
+    \begin{tabular}{|c|}
+    \hline
+        ("randomization methods" OR "randomisation methods" OR "probability distribution"\\OR "chaotic series" OR "chaotic sequence" OR "chaotic map") AND metaheuristic \\
+    \hline
+    \end{tabular}
+    \caption{String de Busca}
+    \label{tab:string}
+\end{table}
+
+
+A string definida foi executada em três mecanismos de busca distintos: Engineering Village, Scopus e IEEE Xplore. Como pode-se observar na tabela \ref{tab:resultado}, ao fazer a busca, reunindo o resultado de todas as bases, foi encontrado um total de 222 artigos, de onde destes apenas 143 estavam disponíveis na íntegra.
+
+\begin{table}[!htpb]
+    \centering
+    \begin{tabular}{c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{Mecanismo} & \textbf{Quantidade} \\
+      \hline
+      Engineering Village & 26\\
+      Scopus & 71\\
+      IEEE Xplore & 125\\
+      \hline
+      Total & 222\\
+      Disponíveis & 143\\
+      Considerados & 43\\
+    \end{tabular}
+    \caption{Resultados dos Mecanismos de Busca}
+    \label{tab:resultado}
+\end{table}
+
+\section{Seleção dos Estudos Primários}
+
+Após a realização da busca, foi feito o \textit{download} dos 143 artigos disponíveis e os mesmos passaram por um processo de seleção com o intuito de fazer a identificação dos estudos primários. Neste processo, foram analisados o título, as palavras-chave, o \textit{abstract} e quando necessário, caso existisse dúvidas em relação a inclusão ou exclusão, a introdução e a conclusão dos artigos. Foram aplicados os seguintes critérios de inclusão:
+
+\begin{itemize}
+    \item Artigos completos, de 4 páginas ou mais;
+    %\item Artigos que apresentam a inclusão de um método de randomização como melhoria em alguma meta-heurística.
+    \item Artigos que apresentam uma nova versão de alguma meta-heurística, utilizando um método de randomização diferente do original.
+\end{itemize}
+
+
+Os critérios de exclusão aplicados foram:
+
+\begin{itemize}
+    \item Artigos publicados fora do período de 2009 até 2019;
+    \item Artigos duplicados;
+    \item Artigos que não propõem uma nova versão de uma meta-heurística, apenas a utilizam para aplicação em algum problema;
+    \item Artigos que apresentam algoritmos que não são baseados em população;
+    \item Artigos que apresentam como método de randomização apenas a distribuição Uniforme.
+\end{itemize}
+
+Após a aplicação dos critérios de inclusão e exclusão mencionados, restaram 43 artigos, como visto na tabela \ref{tab:resultado}. As referências dos artigos podem ser encontradas na seção de Bibliografia deste trabalho, indicados pelo símbolo \textit{*}. Após esse processo, foi realizado um processo de extração e análise dos dados coletados, apresentado na seção \ref{sec:analise}.
+
+\section{Questões de Pesquisa}
+
+Para compreender melhor os trabalhos encontrados no mapeamento, foram definidas algumas questões de pesquisa a serem respondidas:
+
+\begin{itemize}
+    \item \textbf{QP1} - Qual o método de randomização que o estudo utiliza? 
+    \item \textbf{QP2} - Qual foi o motivo para realizar a adaptação do algoritmo com este método de randomização?
+    \item \textbf{QP3} - Em que parte do algoritmo este método de randomização foi aplicado?
+\end{itemize}
+
+\section{Análise dos Resultados}
+\label{sec:analise}
+
+Nessa seção serão apresentados os resultados do Mapeamento Sistemático da Literatura, começando com uma visão geral, com informações pertinentes sobre os estudos; e depois apresentando as respostas para as questões de pesquisa propostas. É válido destacar que dos 43 estudos inclusos, 5 não serão incluídos nas análises e nos gráficos - isto porque esses estudos são repetidos, possuindo a mesma abordagem de estudos já inclusos, mudando apenas os problemas aos quais essas abordagens são aplicadas.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nocite{*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Visão Geral}
+
+A primeira característica analisada nos artigos foi o ano de publicação dos mesmos. Como podemos observar na figura \ref{fig:grafAnos}, temos que a quantidade de artigos abordando o tema de diferentes métodos de randomização em meta-heurísticas têm crescido ao longo dos anos, desde 2011 até 2018. Sendo assim, podemos concluir que o interesse por essa área têm aumentado, e possui a tendência de aumentar ainda mais. Esse fato também nos mostra que cada vez mais pesquisadores têm percebido a importância da randomização para as meta-heurísticas e decidido verificar quais são os melhores métodos para serem utilizados. Além disso, o ano de 2019 teve apenas 3 artigos publicados até então, mas precisamos levar em consideração que apenas os três primeiros meses do ano foram contabilizados no mapeamento - dessa forma, mais artigos podem ser publicados ao longo do ano.
+
+{
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/graficoAnos.png}
+    \captionof{figure}{Anos de Publicação dos Estudos}
+    \label{fig:grafAnos}
+    \source{Própria autora.}
+}
+
+Outro ponto interessante de se analisar é qual o algoritmo que os estudos utilizaram. Um artigo, do \cite{mitic2}, apresentou diversos algoritmos, como o \textit{Bat Algorithm, Firefly Algorithm, Accelerated Particle Swarm Optimization} e \textit{Grey Wolf Optimizer}. Todos os outros estudos realizaram a adaptação de apenas uma única meta-heurística. Como podemos observar na figura \ref{fig:grafAlgoritmos}, diversos algoritmos foram utilizados. Entretanto, o\textbf{ \textit{Firefly Algorithm}} se destacou pela sua popularidade, sendo abordado em 8 estudos, seguido do \textbf{\textit{Bat Algorithm}} e do \textbf{\textit{Grey Wolf Optimizer}}, com 4 estudos; o \textit{Cuckoo Search Algorithm} foi usado em três artigos; e em sequência, o \textit{Imperialist Competitive Algorithm} e o \textit{Colliding Bodies Algorithm}, que foram utilizados em 2 estudos. A categoria Outros do gráfico engloba todos os outros algoritmos, que apareceram apenas uma vez nos artigos. Essa categoria inclui os seguintes algoritmos: \textit{Real-Coded Chemical Reaction Optimization}, \textit{Backtracking Search Optimization Algorithm}, \textit{Grasshopper Optimization Algorithm}, \textit{Dragonfly Algorithm}, \textit{Fruit Fly Optimization Algorithm}, \textit{League Championship Algorithm}, \textit{Accelerated Particle Swarm Optimization}, \textit{Intelligent Tuned Harmony Search}, \textit{Crow Search Algorithm}, \textit{Salp Swarm Algorithm}, \textit{Darwinian Particle Swarm Optimization}, \textit{Symbiotic Organisms Search}, \textit{Wind Driven Optimization}, \textit{Particle Swarm Optimization}, \textit{Self-Adaptive Differential Evolution}, \textit{Monarch Butterfly Optimization Algorithm}, \textit{Artificial Bee Colony} e \textit{Whale Optimization Algorithm}.
+
+{
+    \centering
+    \includegraphics[width=0.9\linewidth]{figuras/graficoAlgoritmos2.png}
+    \captionof{figure}{Algoritmos Utilizados nos Estudos}
+    \label{fig:grafAlgoritmos}
+    \source{Própria autora.}
+}
+
+
+%     \fontsize{6}{11}\selectfont{
+%     \centering
+%     \begin{longtable}{p{5cm}|p{3cm}} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+%     \tiny
+%   \textbf{Algoritmo} & \textbf{Quantidade} \\
+%       \hline
+%       Real-Coded Chemical Reaction Optimization & 1\\
+%       \hline
+%       Grey Wolf Optimizer & 4\\
+%       \hline
+%       Backtracking Search Optimization Algorithm & 1\\
+%       \hline
+%       Firefly Algorithm & 8\\
+%       \hline
+%       Bat Algorithm & 4\\
+%       \hline
+%       Cuckoo Search Algorithm & 3\\
+%       \hline
+%       Imperialist Competitive Algorithm & 2\\
+%       \hline
+%       Grasshopper Optimization Algorithm & 1\\
+%       \hline
+%       Dragonfly Algorithm & 1\\
+%       \hline
+%       Colliding Bodies Algorithm & 2\\
+%       \hline
+%       Fruit Fly Optimization Algorithm & 1\\
+%       \hline
+%       League Championship Algorithm & 1\\
+%       \hline
+%       Accelerated Particle Swarm Optimization & 1\\
+%       \hline
+%       Intelligent Tuned Harmony Search & 1\\
+%       \hline
+%       Crow Search Algorithm & 1\\
+%       \hline
+%       Salp Swarm Algorithm & 1\\
+%       \hline
+%       Darwinian Particle Swarm Optimization & 1\\
+%       \hline
+%       Symbiotic Organisms Search & 1\\
+%       \hline
+%       Wind Driven Optimization & 1\\
+%       \hline
+%       Particle Swarm Optimization & 1\\
+%       \hline
+%       Self-Adaptive Differential Evolution & 1\\
+%       \hline
+%       Monarch Butterfly Optimization Algorithm & 1\\
+%       \hline
+%       Artificial Bee Colony & 1\\
+%       \hline
+%       Whale Optimization Algorithm  & 1\\
+%       \hline
+%       \caption{Resultados do jDE}
+%     \label{tab:features}
+%     \end{longtable}
+%     }
+
+\subsection{Métodos de Randomização (QP1)}
+
+Para responder a primeira questão de pesquisa, foram levantadas as distribuições utilizadas pelos autores ao adaptarem as meta-heurísticas apresentadas nos artigos. No total, 33 métodos de randomização foram encontrados. Na figura \ref{fig:grafDistribuicoes} tem-se os tipos de distribuições que foram usadas e as suas respectivas ocorrências, sendo que a soma total do gráfico se apresenta superior ao número de artigos, visto que na maioria dos artigos os autores utilizaram mais de um método nas abordagens. Como pode-se perceber, os mapas caóticos foram de longe o tipo de distribuição mais utilizada. Isso mostra como há um grande interesse na área pela aplicação de Teoria do Caos em algoritmos de otimização, e também que os mesmos foram selecionados por terem obtido um impacto positivo na literatura, mostrando como podem ser utilizados para se obter um melhor desempenho. Esta popularidade faz sentido, se for levado em consideração que os mapas caóticos apresentam uma uniformidade mais presente e rápida em comparação à distribuição Uniforme. Além dos mapas, temos a distribuição Gaussiana, com 5 ocorrências; o Levy Flights, com 4; e as distribuições de Cauchy, Exponencial, de Rayleigh, Beta, Fat-tailed e de Levy, com 1 ocorrência cada.
+
+{
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/graficoDistribuicoes.png}
+    \captionof{figure}{Distribuições Utilizadas nos Estudos}
+    \label{fig:grafDistribuicoes}
+    \source{Própria autora.}
+}
+
+Na tabela \ref{tab:grafMapas} temos de forma mais específica cada mapa que foi usado nos estudos, onde a soma total representa as 156 ocorrências totais dos mapas caóticos. O mais utilizado foi o \textbf{mapa Logístico}, com 22 ocorrências. Isso não é surpreendente se for levado em consideração que ele é o mapa caótico mais conhecido, além de ser um mapa de simples implementação. Em sequência, temos o \textbf{mapa Sinusoidal}, com 17 ocorrências; o \textbf{mapa Gauss}, com 16; e assim por diante. 
+
+%o mapa Tent, com 15; o mapa Circle, com 14; o mapa Piecewise, com 11; e o mapa Singer, com 10. Além disso temos outros mapas com menos ocorrências, como o Chebyshev, Iterativo, Sine, Liebovitch, de Intermitência, Hénon, Tinkerbell, Sinus, Burgers e por fim, outros que apareceram em apenas um artigo, como o mapa Beta, Sawtooth, ICMIC, Arnold Cat, Delayed Logistic, Dissipative Standard, Ikeda, Lozi e Sinai. 
+
+{\tiny
+\begin{table}[!htpb]
+    \centering
+    \begin{tabular}{c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{Mapa} & \textbf{Ocorrências} \\
+      \hline
+      Mapa Beta & 1\\
+      \hline
+    Mapa Logístico & 22\\
+    \hline
+    Mapa Chebyshev & 9 \\
+    \hline
+    Mapa Burgers & 2\\
+    \hline
+    Mapa Circle  & 14\\
+    \hline
+    Mapa Sinusoidal  & 17\\
+    \hline
+    Mapa Gauss & 16\\
+    \hline
+    Mapa Iterativo & 8\\
+    \hline
+    Mapa Piecewise & 11\\
+    \hline
+    Mapa Sine & 8\\
+    \hline
+    Mapa Singer  & 10\\
+    \hline
+    Mapa Tent & 15\\
+    \hline
+    Mapa de Intermitência & 4\\
+    \hline
+    Mapa Liebovitch & 5\\
+    \hline
+    Mapa Sawtooth & 1\\
+    \hline
+    Mapa Hénon & 2\\
+    \hline
+    Mapa Tinkerbell  & 2\\
+    \hline
+    Mapa ICMIC & 1\\
+    \hline
+    Mapa Sinus & 2\\
+    \hline
+    Mapa Arnold Cat & 1\\
+    \hline
+    Mapa Delayed Logistic & 1\\
+    \hline
+    Mapa Dissipative Standard & 1\\
+    \hline
+    Mapa Ikeda & 1\\
+    \hline
+    Mapa Lozi & 1\\
+    \hline
+    Mapa Sinai & 1\\
+    \end{tabular}
+    \caption{Mapas Utilizados nos Estudos}
+    \label{tab:grafMapas}
+\end{table}
+}
+
+% {
+%     \centering
+%     \includegraphics[width=1.0\linewidth]{figuras/graficoMapas.png}
+%     \captionof{figure}{Mapas Utilizados nos Estudos}
+%     \label{fig:grafMapas}
+%     \source{Própria autora.}
+% }
+
+Além disso, as distribuições encontradas foram classificadas de acordo com a sua finalidade quando aplicadas à algoritmos de otimização: algumas intensificam o espaço de busca, outras diversificam e outras ainda podem apresentar ambas as finalidades - de acordo com os parâmetros utilizados na distribuição. Por exemplo, a distribuição Gaussiana possui dois parâmetros: a média e o desvio-padrão. Quando o desvio-padrão assume um valor pequeno, a distribuição realiza uma intensificação, e quando assume um valor grande, realiza uma diversificação, como podemos visualizar na figura \ref{fig:Gaussiana}. 
+
+Essa mesma situação ocorre também com algumas outras distribuições como a Cauchy, onde quanto maior o parâmetro de escala mais a distribuição diversifica; a Exponencial, onde acontece a mesma coisa com seu parâmetro de \textit{rate}; a de Rayleigh, onde ocorre a mesma situação com o parâmetro de escala; a distribuição Beta, que quando possui seus parâmetros de forma igual a 1, diversifica o espaço de busca, e caso contrário, intensifica; e por fim o Levy Flights, que por utilizar a distribuição de Levy, diversifica quando o parâmetro de escala é grande e intensifica quando o parâmetro de escala é pequeno. As outras distribuições, os chamados mapas caóticos, também possuem parâmetros. Entretanto, esses parâmetros são responsáveis apenas pelo comportamento caótico exibido pelos mesmos, sendo assim, os valores aplicados a eles são fixos e retirados da literatura.
+
+{
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/gaussian.png}
+    \captionof{figure}{Representação 1D da Distribuição Gaussiana com Diferentes Desvios-padrões}
+    \label{fig:Gaussiana}
+    \source{Própria autora.}
+}
+
+Ademais, alguns mapas caóticos apresentaram a característica de intensificação, como o Mapa Beta, Logístico, Circle, Sinusoidal, Gauss, Chebyshev, Sine e Singer; e outros, apresentaram a característica de diversificação, como o Mapa Iterativo, Piecewise e Tent. 
+
+\subsection{Motivação (QP2)}
+
+Diversas questões foram apontadas como motivação para realizar a adaptação dos algoritmos com os seus respectivos métodos de randomização, sendo que a maioria dos estudos apresentou mais de uma motivação. Algumas motivações mais óbvias foram citadas, como por exemplo que a adaptação foi realizada para melhorar o desempenho do algoritmo de forma geral, melhorando sua eficiência e capacidade de convergência - citada por um total de 15 artigos. Outro ponto apresentado foi o impacto positivo que mapas caóticos tiveram na literatura, citado por 3 estudos. Ademais, foram citados por artigos individuais a necessidade de se estudar o impacto no resultado final do algoritmo, de diferentes distribuições como funções de pertubação, no trabalho de \cite{yu}; e foi citado como motivo no estudo de \cite{ismail}, que a distribuição Levy foi utilizada por ser a forma mais rápida de se encontrar um alvo randomicamente escondido.
+
+As motivações restantes podem ser classificadas em quatro categorias - a análise de diversificação, a intensificação, a diversificação e o balanço entre busca global/local, como podemos observar na figura \ref{fig:grafMotivacoes}. A categoria de análise de diversidade se refere ao trabalho de \cite{senserik2}, que apontou a necessidade de se pesquisar o impacto que séries caóticas possuem na diversidade da população. A categoria de intensificação engloba artigos que apontaram a inclusão de métodos de randomização como forma de intensificar o processo de busca, acelerando a velocidade de convergência do algoritmo. Já a categoria de diversificação engloba estudos que fizeram essa inclusão para diversificar a população, com objetivo de evitar problemas como a convergência prematura e estagnação em ótimos locais. Por fim, a categoria de balanço entre busca global/local inclui artigos que tiveram como motivação melhorar o balanço do algoritmo entre busca local (intensificação) e busca global (diversificação).
+
+{
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/graficoMotivacoes.png}
+    \captionof{figure}{Categorias de Motivações Apresentadas nos Estudos}
+    \label{fig:grafMotivacoes}
+    \source{Própria autora.}
+}
+
+Pode-se perceber através das motivações que realizar a mudança de uma distribuição Uniforme para outra distribuição pode impactar imensamente os resultados do algoritmo - melhorando seu desempenho, seu balanço entre intensificação e diversificação, e evitando problemas como a convergência lenta e prematura, e a estagnação em ótimos locais. Não só isso, mas também podemos observar na figura \ref{fig:grafMotivacoes} que a diversificação é uma das maiores motivações para a aplicação de diferentes métodos de randomização nos algoritmos - isso se dá pelo fato de que queremos sempre manter a diversidade presente até as últimas iterações, visto que todos esses algoritmos populacionais sofrem de problemas como a convergência prematura.
+
+% Esse motivo foi abordado nos estudos de \cite{farshin}, \cite{coelho2}, \cite{saida}, \cite{mortazavi}, \cite{wang}, \cite{sayed}, \cite{mitic2}, \cite{turgut}, \cite{ahmed}, \cite{talahari}, \cite{saeed}, \cite{ayala}, \cite{saeed2}, \cite{ding} e \cite{chou3}.
+
+\subsection{Aplicação (QP3)}
+
+As respostas da terceira e última questão de pesquisa mostram que, na maioria dos casos, os métodos de randomização são aplicados em pontos específicos dos algoritmos. Por exemplo, no trabalho de \cite{yu} as distribuições são incorporadas no operador de busca de vizinhança e na operação de decomposição; em \cite{alireza} o mapa caótico é incorporado no fator de escala relacionado ao processo de mutação; no estudo de \cite{coelho}, é incorporado no coeficiente de absorção e no parâmetro de randomização; no artigo de \cite{farshin}, é incorporado na função de atualização dos vetores de coeficiente; em \cite{liang} é incorporado nos parâmetros de sonoridade e taxa de emissão de pulso; em \cite{lin} é incorporado no Levy Flights proposto para substituir o Random Walk; em \cite{coelho2} a distribuição é inserida no parâmetro de randomização $\alpha$; em \cite{wang} é inserida no tamanho do passo $\alpha$; em \cite{kaveh} as distribuições são inseridas de três formas distintas: primeiramente, na probabilidade de mudança do algoritmo; em segundo, são usadas para selecionar as variáveis candidatas para regeneração; e em terceiro, são usadas na regeneração da variável selecionada. 
+
+No trabalho de \cite{mitic} são inseridas em um novo parâmetro chamado $\alpha$, usado para a geração de origens de comida; em \cite{bingol} são incorporadas de seis formas diferentes, todas envolvendo os parâmetro r, r1 e r2 do algoritmo; em \cite{mitic2} são incorporadas no valor randômico r e no parâmetro de exploração C; em \cite{coelho4} a distribuição é incorporada nos parâmetros de consciência e tamanho do voo; no artigo de \cite{ahmed} são inseridas no parâmetro c3; em \cite{gandomi2} são inseridas nos coeficientes de absorção de luz e atratividade; em \cite{coelho3} o mapa caótico é inserido no coeficiente de absorção de luz; no trabalho de \cite{wood} o mapa caótico é incorporado no fator de escala e a distribuição \textit{fat-tailed} no fator de ajustamento estocástico; em \cite{talahari} são incorporados nos parâmetros randômicos da equação de assimilação; em \cite{ayala}, são incorporados nos parâmetros de controle na fase de mutualismo; em \cite{ismail}, a distribuição foi incorporada na função de atualização de posição das partículas; em \cite{saeed2} foram inseridas na função de mutação e de atualização de posição; em \cite{ding} o mapa Logístico foi aplicado nas estratégias de \textit{encircling prey} e \textit{bubble-net attacking} e o mapa Sinusoidal na mutação; em \cite{mortazavi} onde foram aplicados em uma porcentagem de colônias revoltadas; e em \cite{saeed} onde foram aplicados na funções de atualização, mutação e geração de novos indivíduos para a próxima geração.
+
+A segunda maioria dos casos aplica as distribuições em todos os parâmetros do algoritmo que necessitam de randomização. Como o trabalho de \cite{gandomi}; de \cite{sayed}; de \cite{turgut}; de \cite{ayala2}, onde as distribuições são incorporadas em todos os parâmetros de controle: R, T, c, g e $\alpha$; de \cite{senserik2}; de \cite{jaddi};e o de \cite{feng}, onde se utiliza a distribuição gaussiana na atualização do pior indivíduo e as séries caóticas em todos os outros pontos de randomização.
+
+E além desses casos, os métodos também foram aplicados no mecanismo de balanço entre diversificação e intensificação do algoritmo, como no caso do trabalho de \cite{saxena}, onde o mapa Beta é aplicado no vetor de controle responsável por realizar a busca global e local ao longo das iterações do GWO; no trabalho de \cite{saxena2}, onde os mapas são aplicados no parâmetro c, de redução da zona de conforto, o qual é o mecanismo de ponte que liga a intensificação e a diversificação do algoritmo; e no trabalho de \cite{oliveira} onde foram aplicados no vetor de controle e no parâmetro C.
+
+Alguns artigos mostraram que os métodos também foram incorporados na geração da população inicial das meta-heurísticas, como no trabalho de \cite{saida}; no artigo de \cite{suresh}, onde o mapa caótico é aplicado tanto na geração da população inicial como na velocidade de \textit{drift} dos agentes; no estudo de \cite{abro}; e no trabalho de \cite{chou3} onde o mapa Logístico é utilizado na inicialização da população, o mapa Gauss no parâmetro de atratividade e o Levy Flights para realizar a movimentação das \textit{fireflies}.
+
+Um ponto importante, que recebe destaque, é a forma como o trabalho de \cite{wood} realizou a aplicação da distribuição no algoritmo. No estudo, o \textit{Cuckoo Search Algorithm} é adaptado com várias melhorias, uma delas sendo na parte de troca do algoritmo, mais especificamente na equação que gera novos indivíduos para substituir indivíduos com \textit{ranking} baixo ou médio \cite{wood}. Nessa equação, existe um parâmetro \textit{F}, chamado de fator de ajuste estocástico, que é retirado de uma distribuição \textit{fat-tailed}, amostrada através de uma janela de amostragem entre os limites de probabilidade inferiores e superiores, que variam dinamicamente conforme as iterações progridem \cite{wood}.
+Sendo assim, o campo distante de randomização é mais amostrado nas iterações iniciais (fazendo o algoritmo realizar uma diversificação / busca global no espaço de solução) e o campo próximo é mais amostrado nas iterações finais (fazendo o algoritmo realizar uma intensificação / busca local no espaço de solução) \cite{wood}. Ou seja, o autor utiliza a distribuição como uma forma de favorecer os processos de intensificação e diversificação do espaço de busca.
+
+Finalmente, pode-se perceber como o local de aplicação dos métodos de randomização, em muitos casos, pode depender do algoritmo, sendo aplicado em pontos específicos do mesmo. Entretanto, os métodos também podem ser aplicados em locais que favoreçam a intensificação ou a diversificação do algoritmo, como na geração da população inicial; além de locais que envolvem o balanço entre a busca global e local, como os mecanismos de ponte.
+
+% {
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{figuras/logisticDistribution.png}
+%     \captionof{figure}{Representação 1D da Distribuição Logística}
+%     \label{fig:Gaussiana}
+% }
+
+% {
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{figuras/piecewiseDistribution.png}
+%     \captionof{figure}{Representação 1D da Distribuição Piecewise}
+%     \label{fig:Gaussiana}
+% }
+
+    % \centering
+    % \begin{longtable}{p{4cm}|p{4cm}|p{3cm}|p{3cm}} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    %   \textbf{Distribuição} & \textbf{Referências} & \textbf{Intensificação} & \textbf{Diversificação}\\
+    %   \hline
+    %   Distribuição Gaussiana & \cite{yu} & \checkmark  & \checkmark\\
+    %   \hline
+    %   Distribuição de Cauchy & \cite{yu} & \checkmark & \checkmark\\
+    %   \hline
+    %   Distribuição Exponencial & \cite{yu} & \checkmark & \checkmark\\
+    %   \hline
+    %   Distribuição de Rayleigh modificada & \cite{yu} & \checkmark  & \checkmark\\
+    %   \hline
+    %   Distribuição Beta & \cite{coelho2} & \checkmark & \checkmark\\
+    %   \hline
+    %   Levy Flights & \cite{lin} & \checkmark & \checkmark\\
+    %   \hline
+    %   Mapa Beta & \cite{saxena} & \checkmark &\\
+    %   \hline
+    %   Mapa Burgers & \cite{alireza} &- &-\\
+    %   \hline
+    %   Mapa Logístico & \cite{coelho}, \cite{lin}, \cite{saida}, \cite{mortazavi}, \cite{wang}, \cite{saxena2},\cite{gandomi}, \cite{wang2}, \cite{sayed} & \checkmark  & \\
+    %   \hline
+    %   Mapa Circle & \cite{farshin}, \cite{mortazavi}, \cite{wang}, \cite{saxena2}, \cite{gandomi}, \cite{wang2}, \cite{sayed} & \checkmark &\\
+    %   \hline
+    %   Mapa Sinusoidal & \cite{liang}, \cite{wang}, \cite{saxena2}, \cite{gandomi}, \cite{wang2}, \cite{sayed} & \checkmark&\\
+    %   \hline
+    %   Mapa de Gauss & \cite{mortazavi}, \cite{wang}, \cite{saxena2}, \cite{gandomi}, \cite{wang2}, \cite{sayed} &\checkmark &\\
+    %   \hline
+    %   Mapa Chebyshev & \cite{wang}, \cite{saxena2}, \cite{gandomi}, \cite{wang2}, \cite{sayed} & \checkmark &\\
+    %   \hline
+    %   Mapa Interativo & \cite{wang}, \cite{saxena2}, \cite{gandomi}, \cite{wang2}, \cite{sayed} &  & \checkmark\\
+    %   \hline
+    %   Mapa de Intermitência & \cite{wang}, \cite{gandomi}, \cite{wang2} &- &- \\
+    %   \hline
+    %   Mapa Liebovitch & \cite{wang}, \cite{gandomi}, \cite{wang2} &- &-\\
+    %   \hline
+    %   Mapa Piecewise  & \cite{wang}, \cite{saxena2}, \cite{gandomi}, \cite{wang2}, \cite{sayed} & & \checkmark\\
+    %   \hline
+    %   Mapa Seno & \cite{wang}, \cite{saxena2}, \cite{gandomi},\cite{wang2}, \cite{sayed} &\checkmark  &\\
+    %   \hline
+    %   Mapa Singer & \cite{wang}, \cite{saxena2}, \cite{oliveira}, \cite{gandomi}, \cite{wang2}, \cite{sayed} &\checkmark &\\
+    %   \hline
+    %   Mapa Tent & \cite{wang}, \cite{saxena2}, \cite{oliveira}, \cite{gandomi}, \cite{wang2}, \cite{sayed} && \checkmark\\
+    %   \hline
+    %   Mapa Sawtooth & \cite{gandomi} & - & -\\
+    %   \hline
+    %   \caption{Características das Distribuições Encontradas}
+    % \label{tab:features}
+    % \end{longtable}
+    
+% \chapter{Proposta}
+
+% Neste capítulo será apresentado brevemente o problema e a solução proposta para o mesmo neste trabalho, além de um cronograma mostrando o planejamento das atividades para o TCC-2.
+
+% \section{Problema}
+
+% O problema abordado neste trabalho se refere ao fato de que a randomização possui extrema importância para as meta-heurísticas, e que além disso, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos, como a distribuição Uniforme, Gaussiana, e de Cauchy, assim também como os mapas caóticos, como o Logístico e de Kent. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar - acabam utilizando a distribuição Uniforme, por ser o gerador aleatório padrão de muitas linguagens.
+
+% Não só isso, mas estudos como o de \cite{reese} mostram que o melhor gerador de números aleatórios para se utilizar depende não só do tipo de problema com o qual está se lidando, mas também do número de parâmetros, como o número de variáveis, a escolha da função, o espaço de busca e a acurácia desejada. Ou seja, utilizar o mesmo método de randomização para todos os tipos de problemas e em todas as partes do algoritmo que requerem randomização, como é feito na maioria dos casos, pode não ser a melhor opção.
+
+% \section{Solução Proposta}
+% \label{sec:solucao}
+% Levando em consideração o problema apresentado, temos que a solução proposta para o mesmo envolve realizar uma análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas, como o SCA e o jDE. Essa análise nos mostrará se a utilização de métodos de randomização diferentes do Uniforme pode ser benéfica para o desempenho das meta-heurísticas, além de nos apontar quais possuem o melhor desempenho dentre as escolhidas.
+
+% Essa análise será realizada a partir da comparação dos resultados de duas meta-heurísticas e suas respectivas adaptações com diferentes métodos de randomização, inicialmente aplicadas à um conjunto de funções benchmark e, posteriormente, aplicadas à algum problema do mundo real. No jDE, essas adaptações serão feitas da seguinte maneira: os métodos de randomização selecionados e apresentados no capítulo \ref{cap:fundamentacao}, serão aplicados em todos os pontos do algoritmo que requerem uma randomização. Neste caso, como visto na figura \ref{fig:jDE}, temos que os métodos serão aplicados então em cinco pontos do jDE: ao inicializar os agentes no espaço de busca; ao calcular os novos parâmetros F e CR; ao realizar a operação de mutação e por fim, ao realizar a operação de \textit{crossover}. Essa será a única adaptação feita neste algoritmo, visto que ele já é bem conhecido e estudado.
+
+% Por outro lado, o SCA é um algoritmo mais recente e menos estudado. Por isso, as adaptações realizadas nele serão as seguintes: além de aplicar os métodos de randomização em todos os pontos que requerem aleatoriedade no algoritmo, neste caso como visto na figura \ref{fig:SCA}, ao iniciar os indivíduos da população no espaço de busca; e ao atualizar os parâmetros r2, r3 e r4; também aplicaremos duas outras estratégias no algoritmo. A primeira estratégia se chama \textit{Generation Gap}, e será aplicada para aumentar a diversidade do algoritmo, lidando com o problema de convergência prematura. Esse método envolve manter em cada geração uma parte aleatória da população anterior. A segunda estratégia é combinar o algoritmo original com uma busca local, transformando o algoritmo em o que chamamos de um algoritmo memético. Isso será feito para que depois de aumentar a diversidade, podermos focar em uma solução ótima no espaço de busca.
+
+% \section{Cronograma para o TCC-2}
+
+% As etapas planejadas para desenvolvimento ao longo do TCC-2 são as seguintes:
+
+% \begin{enumerate}
+%     \item Adaptação dos algoritmos;
+%     \item Aplicação dos algoritmos em funções \textit{benchmark};
+%     \item Análise e comparação dos resultados;
+%     \item Estudo e aplicação dos algoritmos no problema do mundo real escolhido;
+%     \item Redação da monografia.
+% \end{enumerate}
+
+% Onde no item 1, será realiza a adaptação dos algoritmos baseada nas decisões tomadas na seção \ref{sec:solucao}; no item 2, os algoritmos serão aplicados em um conjunto de funções \textit{benchmark} escolhido; no item 3, será feita a análise e comparação dos resultados, para verificar o impacto dessas adaptações nos algoritmos; no item 4, será realizado um estudo sobre o problema do mundo real escolhido, e os algoritmos serão aplicados sobre o mesmo; e por fim, no item 5, a monografia continuará a ser escrita ao longo do desenvolvimento deste trabalho. O cronograma para a realização dessas etapas pode ser visualizado na tabela \ref{tab:cronograma}.
+
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|}
+%   \hline
+%   \multirow{2}{*}{\textbf{\small{Etapas}}} &
+%   \multicolumn{12}{|c|}{\textbf{\small{2019/2}}}\\
+%   %\hline
+%   \cline{2-13}
+%   & \multicolumn{2}{|c|}{\textbf{J}} & \multicolumn{2}{|c|}{\textbf{A}} & \multicolumn{2}{|c|}{\textbf{S}} & \multicolumn{2}{|c|}{\textbf{O}} & \multicolumn{2}{|c|}{\textbf{N}} & \multicolumn{2}{|c|}{\textbf{D}}  \\
+%   \hline \hline
+%  \textbf{\small{1}} & \rowcolor{black} &  &  &  & \rowcolor{white} & & & & & & & \\
+%   \hline
+%   \textbf{\small{2}} & &  &  & \rowcolor{black} & & \rowcolor{white} & & & & & & \\
+%   \hline
+%   \textbf{\small{3}} & &  &  &  & \rowcolor{black} & & & \rowcolor{white} & & & & \\
+%   \hline
+%   \textbf{\small{4}} & &  &  &  & &  & & \rowcolor{black} &  & & & \rowcolor{white} \\
+%   \hline
+%   \textbf{\small{5}} & \rowcolor{black} &  &  &  & & & & & & & & \rowcolor{white} \\
+%   \hline
+% \end{tabular}
+% \caption{Cronograma Proposto para o TCC-2}
+% \label{tab:cronograma}
+% \end{table}
+
+
+\chapter{Experimentos Iniciais}
+
+Neste capítulo serão apresentados os experimentos iniciais realizados neste trabalho, assim como as configurações utilizadas nos mesmos e seus respectivos resultados e análises.
+
+\section{Experimentos}
+
+Os experimentos realizados para esta etapa do TCC-1 envolvem aplicar dois métodos de randomização em todas as partes dos algoritmos (jDE e SCA) que necessitam de aleatoriedade. Os métodos de randomização utilizados foram o mapa caótico Logístico e a distribuição Gaussiana, escolhidos devido ao fato de serem o mapa caótico e a distribuição mais populares, como visto no mapeamento sistemático da literatura. Esses algoritmos adaptados, foram então aplicados a um conjunto contendo oito funções \textit{benchmark}, e foram então comparados entre si e também com a versão original dos algoritmos, que utilizam a distribuição Uniforme. A comparação foi realizada através do cálculo da média e desvio-padrão das execuções de cada algoritmo, além da análise dos gráficos de convergência e diversidade dos mesmos.
+
+\section{Configurações}
+
+As configurações utilizadas nos experimentos, para os dois algoritmos, foram as seguintes:
+
+\begin{itemize}
+    \item Tamanho da população: 30;
+    \item Gerações: 2000;
+    \item Dimensões: 20;
+    \item Execuções: 10;
+\end{itemize}
+
+%\cite{mirjalili}
+
+O tamanho da população, dimensões e número de execuções foram retirados do trabalho de Mirjalili (2016). Já a quantidade de gerações também foram retiradas deste trabalho, entretanto, seu número foi quadruplicado visto que o original (500 gerações) era muito baixo.  Além disso, em relação à distribuição Gaussiana, foi-se utilizada uma média igual a 0 um desvio-padrão de 1, obtendo-se o caso especial da distribuição normal padrão.
+
+\section{Funções Benchmark}
+
+O conjunto de funções \textit{benchmark} escolhido possui no total oito funções: Sphere, Rosenbrock, Rastrigin, Schaffer, Ackley, Griewank, Schwefel e Zakharov. Destas, apenas duas funções são unimodais, ou seja, não possuem mínimos locais, apenas um único mínimo global - Sphere e Zakharov. As outras seis funções são multimodais, ou seja, possuem diversos mínimos locais. As fórmulas das funções e seus respectivos mínimos globais podem ser vistos na tabela \ref{tab:funcoes}.
+
+
+\begin{table}[!htpb]
+    \centering
+    \begin{tabular}{c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    
+      \textbf{Função} & \textbf{Fórmula} & \textbf{Mínimo Global} \\
+      \hline
+      Sphere & $\sum_{i=0}^{d} x_i^2$ & 0.0\\
+      \hline
+      Rosenbrock & $\sum_{i=0}^{d-1} 100(x_{i+1}-x_i^2)^2+(x_i-1)^2$ & 1.0\\
+      \hline
+      Rastrigin & $\sum_{i=0}^{d} x_i^2-10cos(2\pi x_i)$ & 0.0\\
+      \hline
+      Schaffer & $(\sum_{i=0}^{d} x_i^2)^{0.25} * (sin(50*(\sum_{i=0}^{d} x_i^2)^{0.1})))^2 +1$ & 0.0\\
+      \hline
+      Ackley & \tiny{$-20 exp(-0.2 \sqrt{\frac{1}{d}\sum_{i=0}^{d}x_i^2})-exp(\frac{1}{d}\sum_{i=1}^{d} cos(2\pi x_i))+20+exp(1)$} & 0.0\\
+      \hline
+      Griewank & $\sum_{i=0}^{d} \frac{x_i^2}{4000}-\prod_{i=1}^{d} cos(\frac{x_i}{\sqrt{i}})+1$ & 0.0\\
+      \hline
+      Schwefel & $-\frac{(\sum_{i=0}^{d}x_i sin(\sqrt{|x_i|}))}{d}$ & -418.9829\\
+      \hline
+      Zakharov & $\sum_{i=0}^{d} x_i^2 + (\sum_{i=0}^{d} 0.5ix_i)^2 + (\sum_{i=0}^{d} 0.5ix_i)^4$ & 0.0\\
+      
+    \end{tabular}
+    \caption{Descrição do Conjunto de Funções Usadas}
+    \label{tab:funcoes}
+\end{table}
+
+\section{Resultados e Análises}
+
+%Explicar o que são os valores da tabela, e como foram definidos os destaques
+
+Os resultados dos experimentos executados podem ser observados na tabela \ref{tab:resultados}, onde o primeiro valor encontrado é a média das execuções e o segundo valor, depois do símbolo $\pm$, é o desvio-padrão. Cada linha da tabela representa uma função do conjunto, e cada coluna da tabela representa uma das distribuições utilizadas, sendo que para cada uma destas, temos a separação entre os dois algoritmos, jDE e SCA. A última linha da tabela representa o somatório de vezes que determinado algoritmo foi estatisticamente o melhor para certa função.
+
+Os melhores resultados para cada função podem ser encontrados em negrito na tabela, sendo que os mesmos foram determinados da seguinte maneira: inicialmente, para cada função foi-se determinado o melhor resultado baseado na média das execuções de cada algoritmo, onde foi-se escolhido o que mais se aproximava do mínimo global daquela função. Em seguida, para poder verificar quais dos outros resultados eram equivalentes ao melhor, dois testes estatísticos foram utilizados, Kruskall-Vallis e o teste de Dunn. O teste Kruskall-Vallis foi realizado para verificar se existe ou não uma diferença estatística entre os conjuntos de resultados. No caso de existir alguma diferença, o teste de Dunn foi aplicado posteriormente, com o objetivo de apontar quais resultados são estatisticamente equivalentes e quais não são. Essa análise dos resultados dos testes é baseada em valores chamados de \textit{p-values}. Com 95\% de confiança, dois resultados são estatisticamente diferentes se o \textit{p-value} entre eles for menor que 0.05.
+
+\begin{center}
+\renewcommand{\arraystretch}{2.0}
+\label{tab:resultados}
+{\tiny
+\begin{longtable}{c|c c c c c c}
+\\ %\hline
+\multirow{2}{*}{Função} & \multicolumn{2}{c}{Uniforme} & \multicolumn{2}{c}{Gaussiana} & \multicolumn{2}{c}{Logístico} \\
+& jDE & SCA & jDE & SCA & jDE & SCA\\
+\hline \endhead
+Sphere & \makecell{{3.9883e-53 $\pm$} \\ {4.6228e-53}} 
+      & \makecell{{\bf2.0582e-300  $\pm$} \\ {\bf0.0000e+00}} 
+      & \makecell{{ 1.9730e-54 $\pm$} \\ {3.6103e-54 } }
+      & \makecell{{\bf8.8105e-266 $\pm$} \\ {\bf0.0000e+00} }
+      & \makecell{{2.2783e-13 $\pm$ }\\ {6.5587e-13}} 
+      & \makecell{{2.5196e-117 $\pm$} \\ {7.5587e-117}} \\ %\hline
+
+Rosenbrock & \makecell{{\bf5.2117e+00 $\pm$} \\ {\bf3.3498e+00} }
+       & \makecell{1.8645e+01 $\pm$ \\ 0.2148e+00} 
+       & \makecell{{\bf5.4097e+00  $\pm$} \\ {\bf2.5760e+00} }
+       & \makecell{{1.8788e+01 $\pm$} \\ {0.0480e+00}} 
+       & \makecell{{1.4413e+01 $\pm$ }\\ {1.7316e+01} }
+       & \makecell{{1.8981E+01 $\pm$} \\ {0.0080e+00}} \\ %\hline
+
+Rastrigin & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00} }
+       & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{\bf1.9899e-01  $\pm$} \\ {\bf5.9697e-01} }
+       & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{4.3778e+00 $\pm$ }\\ {2.0487e+00} }
+       & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00}} \\ %\hline
+        
+Schaffer & \makecell{{3.3123e-01 $\pm$} \\ {1.0099e-01} }
+       & \makecell{{\bf1.4510e-69 $\pm$} \\ {\bf4.3511e-69}} 
+       & \makecell{{7.8402e-01  $\pm$} \\ {5.0571e-01} }
+       & \makecell{{\bf1.0995e-73 $\pm$} \\ {\bf3.1762e-73}} 
+       & \makecell{{7.7709e+00 $\pm$ }\\ {7.9093e-01} }
+       & \makecell{{1.8895e-24 $\pm$} \\ {5.6587e-24}} \\ %\hline
+        
+Ackley & \makecell{{3.9968e-15 $\pm$} \\ {0.0000e+00} }
+       & \makecell{{\bf4.4409e-16 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{3.9968e-15  $\pm$} \\ {0.0000e+00} }
+       & \makecell{{\bf4.4409e-16 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{4.1998e+00 $\pm$ }\\ {1.5783e+00} }
+       & \makecell{{\bf4.4409e-16 $\pm$} \\ {\bf0.0000e+00}} \\ %\hline
+
+Griewank & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00} }
+       & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00}}
+       & \makecell{{\bf0.0000e+00  $\pm$} \\ {\bf0.0000e+00} }
+       & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{1.4099e-15 $\pm$ }\\ {3.4216e-15} }
+       & \makecell{{\bf0.0000e+00 $\pm$} \\ {\bf0.0000e+00}} \\ %\hline
+        
+Schwefel & \makecell{{\bf-4.1602e+02 $\pm$} \\ {\bf3.9725e+00} }
+       & \makecell{-1.1919e+02 $\pm$ \\ 1.4580e+01} 
+       & \makecell{{\bf-6.9134e+02  $\pm$} \\ {\bf4.3445e+01} }
+       & \makecell{{-1.1442e+02 $\pm$} \\ {1.0202e+01}} 
+       & \makecell{{\bf-4.0546e+02 $\pm$ }\\ {\bf8.7620e+00} }
+       & \makecell{{-1.3683e+02 $\pm$} \\ {8.1859e+00}} \\ %\hline
+        
+Zakharov & \makecell{{1.5326e-09 $\pm$} \\ {2.4289e-09} }
+       & \makecell{{\bf1.5912e-284 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{2.6462e-09 $\pm$} \\ {4.5283e-09} }
+       & \makecell{{\bf5.8434e-280 $\pm$} \\ {\bf0.0000e+00}} 
+       & \makecell{{3.5924e-03 $\pm$ }\\ {4.4548e-03} }
+       & \makecell{{\bf1.8878e-110 $\pm$} \\ {\bf5.6638e-110}} \\ %\hline
+         \hline
+\makecell{Destaques} & 4  & 6  & 4  & 6  & 1  & 4  \\
+
+\caption{Resultados dos Experimentos}
+\end{longtable}
+}
+%\footnotesize{Fonte: autoria própria.}
+\end{center}
+
+% Explicar quais funções chegaram ao mínimo global ou não e quais algoritmos são melhores baseados nos destaques
+
+Podemos observar que para a maioria das funções, sete do total de oito, o mínimo global foi encontrado por pelo menos um dos algoritmos. A única exceção foi a função Rosenbrock, na qual tanto os algoritmos originais assim como as adaptações tiveram dificuldade para convergir para o ponto ótimo. Além disso, podemos concluir a partir dos destaques, que os algoritmos que apresentaram o melhor desempenho dentre todos foram o SCA com distribuição Uniforme e o SCA com distribuição Gaussiana, sendo que os mesmos apresentaram as melhores convergências para seis das oito funções. Isso nos mostra como o algoritmo SCA teve um melhor desempenho quando comparado com o algoritmo jDE.
+
+Em sequência, ficaram os algoritmos SCA com distribuição Logística, jDE com distribuição Uniforme e jDE com distribuição Gaussiana, tendo o melhor desempenho em quatro das oito funções. Por fim, o algoritmo que mostrou o pior desempenho foi o jDE com mapa caótico Logístico, apresentando uma boa convergência em apenas uma das oito funções do conjunto de \textit{benchmarks}. 
+
+Além disso, em relação às distribuições, a Uniforme e a Gaussiana se destacaram em todas as oito funções do conjunto, enquanto o mapa Logístico mostrou melhores resultados em apenas cinco das oito \textit{benchmarks}. Sendo assim, podemos concluir que o mapa caótico Logístico não apresentou os resultados esperados quando comparado com os da literatura, visto que o esperado seria o mesmo mostrar um desempenho superior as duas outras distribuições.
+
+
+Os gráficos de convergência e de diversidade dos algoritmos para cada uma das oito funções podem ser visualizados nas figuras \ref{fig:grafSphere} até  %\ref{fig:grafRosenbrock}, \ref{fig:grafRastrigin}, \ref{fig:grafSchaffer}, \ref{fig:grafAckley}, \ref{fig:grafGriewank}, \ref{fig:grafSchwefel} e 
+\ref{fig:grafZakharov}. O cálculo da diversidade é realizado a partir de uma fórmula baseada no conceito de momento de inércia, e na utilização de centroides - tendo como referência o trabalho de \cite{morrison}.
+
+Como podemos observar, a convergência dos algoritmos para a maioria das funções, com exceção de algumas, foi extremamente rápida e abrupta. Sendo assim, para melhor visualização do comportamento de convergência, alguns dos gráficos estão sendo apresentados com um \textit{zoom} no início das iterações. Essa convergência rápida se deu porque, em algumas funções, os algoritmos conseguiram alcançar o ótimo global facilmente - como no caso da função Sphere, por exemplo. Em outros casos, como no da função Rosenbrock, os algoritmos convergiram de forma rápida para um ótimo local, onde ficaram presos pelo resto das gerações.
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvSphere.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivSphere.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Sphere (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Sphere (direita)}
+    \label{fig:grafSphere}
+    \source{Própria autora.}
+}
+
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvRosenbrock.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivRosenbrock.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Rosenbrock (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Rosenbrock (direita)}
+    \label{fig:grafRosenbrock}
+    \source{Própria autora.}
+}
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvRastrigin.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivRastrigin.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Rastrigin (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Rastrigin (direita)}
+    \label{fig:grafRastrigin}
+    \source{Própria autora.}
+}
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvSchaffer2.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivSchaffer.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Schaffer (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Schaffer (direita)}
+    \label{fig:grafSchaffer}
+    \source{Própria autora.}
+}
+
+Além disso, também podemos perceber a partir dos gráficos, que a diversidade dos algoritmos na maioria dos casos se encontra baixa. Principalmente para o algoritmo jDE e suas respectivas adaptações, para as quais, depois de algumas iterações, suas diversidades chegaram ao valor zero. Esse fato pode nos explicar o por quê de o jDE ter apresentado um desempenho inferior ao do SCA, visto que tendo uma diversidade menor ele se torna mais propenso a ficar preso em ótimos locais.
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvAckley2.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivAckley.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Ackley (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Ackley (direita)}
+    \label{fig:grafAckley}
+    \source{Própria autora.}
+}
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvGriewank.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivGriewank.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Griewank (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Griewank (direita)}
+    \label{fig:grafGriewank}
+    \source{Própria autora.}
+}
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvSchwefel2.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivSchwefel.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Schwefel (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Schwefel (direita)}
+    \label{fig:grafSchwefel}
+    \source{Própria autora.}
+}
+
+{
+    \centering
+    \includegraphics[width=0.4\linewidth]{figuras/ConvZakharov.png}
+    \includegraphics[width=0.4\linewidth]{figuras/DivZakharov.png}
+    \captionof{figure}{Gráfico de Convergência dos Algoritmos para a Função Zakharov (esquerda) e Gráfico de Diversidade dos Algoritmos a Função Zakharov (direita)}
+    \label{fig:grafZakharov}
+    \source{Própria autora.}
+}
+
+%}
+%\end{landscape}
+
+% Explicar o comportamento de cada um dos algoritmos nos gráficos de convergência e diversidade

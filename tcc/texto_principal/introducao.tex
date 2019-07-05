@@ -1,17 +1,24 @@
 \chapter{Introdução}
 \label{cap:introducao}
 
-Na área de otimização, a classificação dos algoritmos pode ser dada através da sua natureza, dividindo os mesmos em duas categorias: algoritmos determinísticos e algoritmos estocásticos \cite{yang}. Algoritmos determinísticos seguem um procedimento rigoroso, e o caminho e valores de suas variáveis e função são repetíveis; por exemplo, o algoritmo subida de encosta é determinístico, pois a partir de um mesmo ponto de partida ele seguirá o mesmo caminho sempre \cite{yang}. Por outro lado, algoritmos estocásticos sempre terão algum tipo de aleatoriedade; algoritmos genéticos são um bom exemplo, onde o vetor de soluções será diferente a cada rodada, visto que o algoritmo utiliza um gerador de números pseudo-aleatórios \cite{yang}.
+Na área de otimização, a classificação dos algoritmos pode ser dada através da sua natureza, dividindo os mesmos em duas categorias, algoritmos determinísticos e algoritmos estocásticos: algoritmos determinísticos seguem um procedimento rigoroso, e o caminho e valores de suas variáveis e função são repetíveis; por exemplo, o algoritmo subida de encosta é determinístico, pois a partir de um mesmo ponto de partida ele seguirá o mesmo caminho sempre \cite{yang}. Por outro lado, algoritmos estocásticos sempre terão algum tipo de aleatoriedade; algoritmos genéticos são um bom exemplo, onde o vetor de soluções será diferente a cada rodada, visto que o algoritmo utiliza um gerador de números pseudo-aleatórios \cite{yang}.
 
-Algoritmos estocásticos possuem dois tipos: heurísticas e meta-heurísticas \cite{yang}. Explicando de forma vaga, heurística significa "descobrir através de tentativa e erro" \- - soluções boas para um problema complexo podem ser encontradas em um tempo razoável, mas não existe garantia que a solução ótima será encontrada \cite{yang}. Mais adiante, foram desenvolvidas as meta-heurísticas, que significam "além" ou "alto-nível" e elas geralmente possuem um desempenho melhor do que as heurísticas \cite{yang}.
+Algoritmos estocásticos possuem dois tipos, heurísticas e meta-heurísticas: explicando de forma vaga, heurística significa "descobrir através de tentativa e erro" \- - soluções boas para um problema complexo podem ser encontradas em um tempo razoável, mas não existe garantia que a solução ótima será encontrada \cite{yang}. Mais adiante, foram desenvolvidas as meta-heurísticas, que significam "além" ou "alto-nível" e elas geralmente possuem um desempenho melhor do que as heurísticas \cite{yang}.
 
-Devido ao fato que meta-heurísticas são algoritmos estocásticos, podemos afirmar que a randomização é um dos princípios fundamentais para seus processos \cite{yang2}. A randomização permite que o algoritmo seja capaz de escapar de mínimos ou máximos locais, fazendo uma busca global, como também ajuda em buscas locais na vizinhança da atual melhor solução \cite{yang2}. Além disso, a randomização está fortemente ligada às propriedades de convergência do algoritmo \cite{caponetto}, pois ajuda a descobrir novos pontos no espaço de busca, movendo os agentes em direção à diferentes regiões do espaço \cite{fister}.
+Devido ao fato que meta-heurísticas são algoritmos estocásticos, podemos afirmar que a randomização é um dos princípios fundamentais para seus processos: a randomização permite que o algoritmo seja capaz de escapar de mínimos ou máximos locais, fazendo uma busca global, como também ajuda em buscas locais na vizinhança da atual melhor solução \cite{yang2}. Além disso, a randomização está fortemente ligada às propriedades de convergência do algoritmo \cite{caponetto}, pois ajuda a descobrir novos pontos no espaço de busca, movendo as soluções em direção à diferentes regiões do espaço \cite{fister}.
 
-Levando a importância da randomização para as meta-heurísticas em consideração, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos, como a distribuição Uniforme, Gaussiana, e de Cauchy, assim também como os mapas caóticos, como o Logístico e de Kent \cite{fister}. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar - acabam utilizando a distribuição uniforme, por ser o gerador aleatório padrão de muitas linguagens.
+Levando a importância da randomização para as meta-heurísticas em consideração, temos a disposição diversos métodos de randomização que podem ser utilizados nos algoritmos, como a distribuição Uniforme, Gaussiana, e de Cauchy, além dos mapas caóticos, como o Logístico e de Kent \cite{fister}. Entretanto, grande parte dos estudos não fazem uma análise de qual a melhor distribuição a se usar - acabam utilizando a distribuição uniforme, por ser o gerador aleatório padrão de muitas linguagens.
 
-Com essa motivação, a contribuição deste trabalho se encontra na análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas, como o Sine Cosine Algorithm (SCA) \cite{mirjalili} e a Evolução Diferencial Auto-adaptativa (jDE) \cite{brest}. A ideia desta análise é verificar a possibilidade de se utilizar diferentes distribuições em diferentes partes do algoritmo, para favorecer os processos de intensificação e diversificação do espaço de busca, assim como alguns algoritmos já fazem, como o JADE, proposto por \cite{zhang}, e o SHADE, proposto por \cite{tanabe}.
 
-Alguns outros trabalhos também abordam objetivos semelhantes, como o trabalho de \cite{saxena} que apresenta uma versão do \textit{Grey Wolf Optimizer} (GWO) utilizando um mapa caótico; e o trabalho de \cite{jana}, que apresenta várias versões de um algoritmo simples, o Passeio Aleatório (\textit{Random Walk}), adaptadas com diferentes mapas caóticos. Ambos os trabalhos apresentaram resultados promissores, mostrando que a utilização de mapas caóticos sobre as outras distribuições antes usadas resulta em uma melhora na capacidade de intensificação e diversificação dos agentes de busca \cite{saxena} e em uma melhor cobertura do espaço de busca \cite{jana}.
+% \cite{reese}
+
+Além disso, estudos como o de Resse (2009) mostram que o melhor gerador de números aleatórios para se utilizar depende não só do tipo de problema com o qual está se lidando, mas também do número de parâmetros, como o número de variáveis, a escolha da função, o espaço de busca e a acurácia desejada. Ou seja, utilizar o mesmo método de randomização para todos os tipos de problemas e em todas as partes do algoritmo que requerem randomização, pode não ser a melhor opção.
+
+Com essa motivação, a contribuição deste trabalho se encontra na análise do impacto que diferentes distribuições probabilísticas possuem sobre algumas meta-heurísticas, como o Sine Cosine Algorithm (SCA) \cite{mirjalili} e a Evolução Diferencial Auto-adaptativa (jDE) \cite{brest}, que foram escolhidos baseados na simplicidade de implementação dos mesmos. A ideia desta análise é verificar a possibilidade de se utilizar diferentes distribuições em diferentes partes do algoritmo, para favorecer os processos de intensificação e diversificação do espaço de busca, assim como alguns algoritmos já fazem, como o JADE, proposto por Zhang e Sanderson (2009), e o SHADE, proposto por Tanabe e Fukunaga (2013). Além de verificar para que tipos de problemas certos métodos de randomização podem apresentar um melhor desempenho.
+
+%\cite{zhang} e \cite{tanabe}
+
+% Alguns outros trabalhos também abordam objetivos semelhantes, como o trabalho de \cite{saxena} que apresenta uma versão do \textit{Grey Wolf Optimizer} (GWO) utilizando um mapa caótico; e o trabalho de \cite{jana}, que apresenta várias versões de um algoritmo simples, o Passeio Aleatório (\textit{Random Walk}), adaptadas com diferentes mapas caóticos. Ambos os trabalhos apresentaram resultados promissores, mostrando que a utilização de mapas caóticos sobre as outras distribuições antes usadas resulta em uma melhora na capacidade de intensificação e diversificação dos agentes de busca \cite{saxena} e em uma melhor cobertura do espaço de busca \cite{jana}.
 
 % \section{Problema}
 
@@ -27,35 +34,38 @@ Para guiar o processo de desenvolvimento do trabalho em questão, foram definido
 
 \subsection{Objetivo Geral}
 
-Este trabalho tem como objetivo geral a aplicação de diferentes métodos de randomização em algumas meta-heurísticas.
+Este trabalho tem como objetivo geral a aplicação de diferentes métodos de randomização em algumas meta-heurísticas e a análise do impacto dos mesmos nos resultados dos algoritmos.
 
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-    \item Realizar um levantamento de diferentes meta-heurísticas;
-    \item Realizar um estudo sobre as meta-heurísticas selecionadas para o trabalho;
-    \item Levantar diferentes métodos de randomização que podem ser utilizados;
-    \item Estudar os métodos de randomização escolhidos;
-    \item Implementar as meta-heurísticas selecionadas;
-    \item Adaptar os algoritmos implementados para utilizarem os diferentes métodos de randomização escolhidos;
-    \item Realizar testes aplicando os algoritmos em funções \textit{benchmark};
-    \item Analisar o impacto dos diferentes métodos de randomização nos resultados apresentados;
-    \item Estudar possíveis problemas do mundo real nos quais os algoritmos em questão podem ser aplicados.
+    %\item Realizar um levantamento de diferentes meta-heurísticas;
+    %\item Realizar um estudo sobre as meta-heurísticas selecionadas para o trabalho;
+    %\item Escolher os diferentes métodos de randomização que serão utilizados;
+    %\item Levantar diferentes métodos de randomização que podem ser utilizados;
+    %\item Estudar os métodos de randomização escolhidos;
+    \item Implementar as meta-heurísticas selecionadas, jDE e SCA;
+    %\item Adaptar os algoritmos implementados para utilizarem os diferentes métodos de randomização escolhidos;
+    \item Fazer as adaptações propostas, aplicando os diferentes métodos de randomização nos algoritmos;
+    \item Executar os experimentos, aplicando os algoritmos propostos em um conjunto de funções \textit{benchmark};
+    %\item Realizar testes aplicando os algoritmos em funções \textit{benchmark};
+    \item Analisar os resultados dos experimentos através de médias, desvios-padrão e gráficos de convergência e diversidade;
+    \item Aplicar os algoritmos adaptados em algum problema do mundo real.
 \end{itemize}
 
 \section{Metodologia}
 
 O desenvolvimento deste trabalho está dividido em três partes principais: o estudo dos métodos de randomização, heurísticas e funções \textit{benchmark}; a implementação e adaptação dos algoritmos; e a análise dos resultados dos experimentos.
 
-Inicialmente, será realizada um levantamento de diferentes meta-heurísticas e métodos de randomização que serão aplicados no trabalho em questão. Em seguida, será feita uma revisão da literatura sobre os mesmos, buscando uma melhor compreensão dos tópicos. Além disso, será feito um estudo sobre funções \textit{benchmark}, destacando algumas dessas funções que serão utilizadas para a implementação.
+Inicialmente, será realizado um levantamento de diferentes meta-heurísticas e métodos de randomização que serão aplicados no trabalho em questão. Em seguida, será feita uma revisão da literatura sobre os mesmos, buscando uma melhor compreensão dos tópicos. Além disso, será feito um estudo sobre funções \textit{benchmark}, destacando algumas dessas funções que serão utilizadas para a implementação.
 
-Em sequência, os algoritmos serão implementados utilizando a linguagem C++, e então serão aplicados às funções \textit{benchmark} estudadas para obtenção dos resultados.
+Em sequência, os algoritmos serão implementados utilizando as linguagens C++ e Python, e então serão aplicados às funções \textit{benchmark} estudadas para obtenção dos resultados.
 
-Depois, os resultados serão analisados e comparados a partir da geração de gráficos e medidas como médias e desvio-padrão. E por fim, serão estudados os problemas do mundo real selecionados para aplicação dos algoritmos.
+Depois, os resultados serão analisados e comparados a partir da geração de gráficos de convergência e diversidade, e medidas como médias e desvio-padrão. E por fim, serão estudados os problemas do mundo real selecionados para aplicação dos algoritmos.
 
 \section{Estrutura}
 
-Este trabalho está dividido em 5 capítulos. O capítulo 2 apresenta a fundamentação teórica do trabalho, dando embasamento para os tópicos a serem abordados. O capítulo 3 apresenta os trabalhos relacionados, que possuem objetivos semelhantes a este trabalho. No capítulo 4 são abordados os resultados parciais, e no capítulo 5 são apresentadas as considerações parciais deste trabalho.
+Este trabalho está dividido em 5 capítulos. O capítulo 2 apresenta a fundamentação teórica do trabalho, dando embasamento para os tópicos a serem abordados. O capítulo 3 apresenta os trabalhos relacionados, onde foi realizado um mapeamento sistemático da literatura. O capítulo 4 apresenta os experimentos iniciais executados e, por fim, no capítulo 5 temos as considerações parciais deste estudo, assim como a proposta definida para o TCC-2.
 
 % \section{Hipótese}
 

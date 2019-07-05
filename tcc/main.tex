@@ -17,6 +17,27 @@
 \usepackage{listings}
 \usepackage{acronym}
 \usepackage{csquotes}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{makecell}
+% \usepackage{setspace}
+% \usepackage{epsfig}
+% \usepackage[pdftex]{hyperref}
+\usepackage{multicol}
+\usepackage{xcolor}
+\definecolor{black}{rgb}{0, 0, 0}
+\usepackage{lscape}
+% \usepackage{fancyhdr,url} 
+% \usepackage{verbatim}
+% \usepackage{ragged2e}
+
+\usepackage{soul}
+
+\usepackage{caption}
+\newcommand{\source}[1]{\vspace{-6pt} \caption*{Fonte: {#1}} }
 
 \usepackage[utf8]{inputenc}
 \usepackage{enumitem}
@@ -48,8 +69,8 @@
 \sigla{UDESC} \unidadeacademica{Centro de Ci\^encias Tecnol\'ogicas}
 
 \orientador{Rafael Stubs Parpinelli}
-%\examinadorum{Cristiano Damiani Vasconcellos}
-%\examinadordois{Cláudio César de Sá}
+\examinadorum{Chidambaram Chidambaram}
+\examinadordois{Gilmário Barbosa dos Santos}
 
 \ttorientador{Doutor}
 \ttexaminadorum{Doutor}
@@ -59,7 +80,11 @@
 
 %
 %\agradecimento{Agradecimentos}
- % Agradeço ao professor Rafael Stubs Parpinelli por todo o suporte e motivação ao longo do período de desenvolvimento deste trabalho. Também agradeço a minha família, pelo apoio financeiro e emocional dado durante a faculdade. Por fim, gostaria de agradecer ao meus amigos, por estarem ao meu lado ao longo dessa jornada. 
+ % Agradeço ao professor Rafael Stubs Parpinelli por todo o suporte e motivação ao longo do período de desenvolvimento deste trabalho. Assim também como todos os professores da universidade que contribuíram para o meu crescimento.
+ 
+ %Também agradeço a minha família, mais especificamente minha mãe Roselena, pelo apoio durante a faculdade. 
+ 
+ %E por fim, gostaria de agradecer ao meus amigos, Caroline, Mateus e Claudia, por estarem ao meu lado ao longo dessa jornada. 
 
 %\newpage
 
@@ -73,13 +98,13 @@
 
 \input{pre_texto/resumo}
 
-\noindent Palavras-chaves: Métodos de randomização, meta-heurísticas.
+\noindent Palavras-chaves: Métodos de randomização, meta-heurísticas, mapas caóticos.
 
 \resumo{Abstract}
 
 \input{pre_texto/abstract}
 
-\noindent Keywords: Randomization methods, metaheuristics.
+\noindent Keywords: Randomization methods, metaheuristics, chaotic maps.
 
 \listoffigures
 
@@ -102,4 +127,3 @@
 \input{pos_texto/apendice}
 
 \end{document}
-
